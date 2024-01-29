@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Candidat } from '../models/candidat/candidat';
 import { CandidatService } from '../candidat.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-candidat-form',
@@ -10,21 +11,16 @@ import { Router } from '@angular/router';
 })
 export class CandidatFormComponent {
 
-  @Input() candidat!: Candidat;
+  @Input() candidat!: Candidat ;
 
-  email!: string;
-  
   constructor(
     private candidatService: CandidatService,
     private router: Router
   ) {}
-  
-  onSubmitForm() {
-    console.log('la');
+  onSubmitForm(form : NgForm) {
     
     this.candidatService.addCandidat(this.candidat).then(() => {
       this.router.navigate([, this.candidat]);
-      console.log(this.candidat);
       
     });
     console.log('lax2');

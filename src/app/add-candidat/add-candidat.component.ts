@@ -1,18 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Candidat } from '../models/candidat/candidat';
 
 @Component({
   selector: 'app-add-candidat',
   templateUrl: './add-candidat.component.html',
-  styleUrls: ['./add-candidat.component.scss']
+  styleUrls: ['./add-candidat.component.scss'],
 })
-export class AddCandidatComponent {
+export class AddCandidatComponent implements OnInit {
+  candidat!: Candidat;
 
-  candidat!: Candidat
-  
   ngOnInit() {
-    this.candidat = new Candidat() ;
-    console.log(Candidat);
+    console.log('la');
     
+    this.candidat = new Candidat();
+    console.log(Candidat);
   }
 }

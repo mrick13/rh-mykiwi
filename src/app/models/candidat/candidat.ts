@@ -1,7 +1,7 @@
 export class Candidat { 
   id! : number ;
   name! : string;
-  fisrtname! : string;
+  firstname! : string;
   email! : string;
   city! : string;
   phone! : number;  //numéro de téléphone

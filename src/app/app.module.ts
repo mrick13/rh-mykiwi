@@ -17,9 +17,9 @@ import { CandidatModule } from './candidat/candidat.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
     CandidatModule,
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

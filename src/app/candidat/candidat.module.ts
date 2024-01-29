@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, Routes } from '@angular/router';
 
 const candidatRoutes: Routes = [
-  { path: 'candidat/add', component: CandidatFormComponent},
+  { path: 'candidat/add', component: AddCandidatComponent},
   { path: 'candidats', component: ListComponent},
   { path: 'candidat/:id', component: DetailComponent},
 ]
@@ -26,7 +26,6 @@ const candidatRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
     FormsModule,
     RouterModule.forChild(candidatRoutes)
   ],

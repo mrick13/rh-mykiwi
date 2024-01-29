@@ -6,9 +6,6 @@ import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
-  { path: 'candidat/add', component: CandidatFormComponent,/**canActivate: [Authguard] */ },
-  { path: 'candidats', component: ListComponent,/**canActivate: [Authguard] */ },
-  { path: 'candidat/:id', component: DetailComponent,/**canActivate: [Authguard] */ },
   { path : '**' , component: LoaderComponent}
 
 ];

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Candidat } from '../models/candidat/candidat';
 
 @Component({
   selector: 'app-add-candidat',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AddCandidatComponent {
 
+  candidat!: Candidat
+  
+  ngOnInit() {
+    this.candidat = new Candidat() ;
+    console.log(Candidat);
+    
+  }
 }

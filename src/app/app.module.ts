@@ -3,22 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListComponent } from './list/list.component';
-import { AddCandidatComponent } from './add-candidat/add-candidat.component';
-import { DetailComponent } from './detail/detail.component';
 import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './loader.service';
+import { CandidatFormComponent } from './candidat-form/candidat-form.component';
+import { CandidatModule } from './candidat/candidat.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    AddCandidatComponent,
-    DetailComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    CandidatModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

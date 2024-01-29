@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoaderComponent } from './loader.service';
+import { CandidatFormComponent } from './candidat-form/candidat-form.component';
+import { ListComponent } from './list/list.component';
+import { DetailComponent } from './detail/detail.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'candidat/add', component: CandidatFormComponent,/**canActivate: [Authguard] */ },
+  { path: 'candidats', component: ListComponent,/**canActivate: [Authguard] */ },
+  { path: 'candidat/:id', component: DetailComponent,/**canActivate: [Authguard] */ },
+  { path : '**' , component: LoaderComponent}
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

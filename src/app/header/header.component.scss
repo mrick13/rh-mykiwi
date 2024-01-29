@@ -1,0 +1,40 @@
+// Définir les variables pour le header
+$header-background-color: #333;
+$header-text-color: #fff;
+$header-width: 200px;
+$header-padding: 20px;
+
+// Style du header
+header {
+  background-color: $header-background-color;
+  color: $header-text-color;
+  width: $header-width;
+  padding: $header-padding;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh; // Hauteur de la vue actuelle (viewport height)
+
+  // Ajoutez d'autres styles selon vos besoins
+  // ...
+
+  // Style pour les liens dans le header
+  a {
+    color: $header-text-color;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+
+    // Ajoutez d'autres styles pour les liens
+    // ...
+  }
+}
+
+// Style pour le contenu principal de la page
+main {
+  margin-left: $header-width;
+  padding: $header-padding;
+
+  // Ajoutez d'autres styles selon vos besoins
+  // ...
+}

@@ -12,8 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, Routes } from '@angular/router';
 
 const candidatRoutes: Routes = [
+  { path: '', component: ListComponent},
   { path: 'candidat/add', component: AddCandidatComponent},
-  { path: 'candidats', component: ListComponent},
   { path: 'candidat/:id', component: DetailComponent},
 ]
 

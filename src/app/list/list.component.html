@@ -1,1 +1,27 @@
-<p>list works!</p>
+<i
+  class="small material-icons"
+  style="position: fixed; top: 25px; right: 25px; cursor: pointer"
+  routerLink="/candidat/add"
+>
+  add_circle
+</i>
+<!--icone de add -->
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let candidat of candidatList | async" class="col s12">
+      <!-- La classe 'col s12' indique que chaque candidat occupera la largeur complète de la ligne -->
+      <div class="card" (click)="goToCandidat(candidat)">
+        <div class="card-content">
+            <div class="name">
+              <span>{{ candidat.name }}</span>
+              <span>{{ candidat.firstname }}</span>
+            </div>
+            <span>{{ candidat.email }}</span>
+            <span>{{ candidat.phone }}</span>
+            <span>{{ candidat.nationality }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

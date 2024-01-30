@@ -10,19 +10,15 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./candidat-form.component.scss'],
 })
 export class CandidatFormComponent {
-
-  @Input() candidat!: Candidat ;
+  @Input() candidat!: Candidat;
 
   constructor(
     private candidatService: CandidatService,
     private router: Router
   ) {}
-  onSubmitForm(form : NgForm) {
-    
+  onSubmitForm(form: NgForm) {
     this.candidatService.addCandidat(this.candidat).then(() => {
       this.router.navigate(['/']);
-      
     });
-    console.log('lax2');
   }
 }

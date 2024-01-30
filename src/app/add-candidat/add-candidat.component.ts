@@ -10,9 +10,6 @@ export class AddCandidatComponent implements OnInit {
   candidat!: Candidat;
 
   ngOnInit() {
-    console.log('la');
-    
     this.candidat = new Candidat();
-    console.log(Candidat);
   }
 }

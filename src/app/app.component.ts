@@ -10,9 +10,7 @@ import { getAnalytics } from "firebase/analytics";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'rh-mykiwi';
-}
+export class AppComponent {}
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {

@@ -6,15 +6,11 @@ import { getDatabase, ref, set } from "firebase/database";
   providedIn: 'root',
 })
 export class CandidatService {
-  constructor() {
-    const firebaseConfig = {
-      databaseURL:
-        'https://mykiwi-a2ebe-default-rtdb.europe-west1.firebasedatabase.app/',
-    };
-  }
+  
 
    addCandidat(candidat: Candidat) {
      const db = getDatabase();
-     return set(ref(db, 'candidat/' + candidat.id), candidat);
+     console.log(candidat);
+     return set(ref(db, 'candidats/' + candidat.name), candidat);
    }
 }

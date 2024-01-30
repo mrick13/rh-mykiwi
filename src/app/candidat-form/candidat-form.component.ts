@@ -20,7 +20,7 @@ export class CandidatFormComponent {
   onSubmitForm(form : NgForm) {
     
     this.candidatService.addCandidat(this.candidat).then(() => {
-      this.router.navigate([, this.candidat]);
+      this.router.navigate(['/']);
       
     });
     console.log('lax2');

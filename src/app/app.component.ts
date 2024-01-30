@@ -22,7 +22,8 @@ const firebaseConfig = {
   storageBucket: "mykiwi-a2ebe.appspot.com",
   messagingSenderId: "165397693973",
   appId: "1:165397693973:web:4ec519cc117232285d301c",
-  measurementId: "G-PM91ZKBGPW"
+  measurementId: "G-PM91ZKBGPW",
+  databaseURL : "https://mykiwi-a2ebe-default-rtdb.europe-west1.firebasedatabase.app",
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

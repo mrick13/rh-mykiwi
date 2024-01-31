@@ -10,13 +10,7 @@ header {
   color: $header-text-color;
   width: $header-width;
   padding: $header-padding;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%; // Hauteur de la vue actuelle (viewport height)
-
-  // Ajoutez d'autres styles selon vos besoins
-  // ...
+  height: 100%;
 
   // Style pour les liens dans le header
   a {

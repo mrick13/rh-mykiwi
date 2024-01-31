@@ -6,10 +6,14 @@ import { CandidatService } from '../candidat.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  host: {
+    class : "full-size"
+  }
 })
 export class ListComponent implements OnInit {
   candidatList!: Promise<Candidat[]>;
+  
 
   constructor(
     private router : Router,
@@ -18,12 +22,10 @@ export class ListComponent implements OnInit {
 
     ngOnInit() {
       this.candidatList = this.candidatService.getCandidatList()
-      console.log(this.candidatList);
-      console.log(Candidat);
-      console.log('la');
     }
 
   goToCandidat(candidat : Candidat) {
     this.router.navigate(['/candidat', candidat.name ]);
   }
+  
 }

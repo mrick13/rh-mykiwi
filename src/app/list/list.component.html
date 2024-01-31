@@ -1,27 +1,38 @@
 <i
   class="small material-icons"
-  style="position: fixed; top: 25px; right: 25px; cursor: pointer"
+  style="position: fixed; bottom: 25px; right: 25px; cursor: pointer"
   routerLink="/candidat/add"
 >
   add_circle
 </i>
 <!--icone de add -->
 
-<div class="container">
-  <div class="row">
-    <div *ngFor="let candidat of candidatList | async" class="col s12">
-      <!-- La classe 'col s12' indique que chaque candidat occupera la largeur complète de la ligne -->
-      <div class="card" (click)="goToCandidat(candidat)">
-        <div class="card-content">
-            <div class="name">
-              <span>{{ candidat.name }}</span>
-              <span>{{ candidat.firstname }}</span>
-            </div>
-            <span>{{ candidat.email }}</span>
-            <span>{{ candidat.phone }}</span>
-            <span>{{ candidat.nationality }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Nom prénom</th>
+      <th>Email</th>
+      <th>Numéro de téléphone</th>
+      <th>Nationalité</th>
+      <th>Date de Naissance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let candidat of candidatList | async">
+      <td>{{ candidat.name | uppercase }} {{ candidat.firstname }}</td>
+      <td>{{ candidat.email }}</td>
+      <td>{{ candidat.phone }}</td>
+      <td>{{ candidat.nationality }}</td>
+      <td>{{ candidat.isBorn }}</td>
+      <td>
+        <i
+          class="material-icons"
+          style="cursor: pointer"
+          (click)="goToCandidat(candidat)"
+        >
+          more_horiz
+        </i>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -2,6 +2,7 @@ export class Candidat {
   id! : number ;
   name! : string;
   firstname! : string;
+  isBorn! : string;
   email! : string;
   city! : string;
   phone! : string;  //numéro de téléphone

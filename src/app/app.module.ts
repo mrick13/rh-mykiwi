@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from './loader.service';
-import { CandidatFormComponent } from './candidat-form/candidat-form.component';
 import { CandidatModule } from './candidat/candidat.module';
 
 @NgModule({

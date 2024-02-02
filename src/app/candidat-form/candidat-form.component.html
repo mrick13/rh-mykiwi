@@ -1,9 +1,10 @@
-<form #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
+<form #candidatForm="ngForm" (ngSubmit)="onSubmitForm(candidatForm)">
   <div class="row">
     <div class="col s8 offset-s2">
       <div class="card-panel">
         <div class="row">
           <div class="input-field col s12 m6">
+            <i class="material-icons prefix">account_box</i>
             <label for="name">Nom :</label>
             <input
               type="text"
@@ -67,84 +68,95 @@
             />
           </div>
         </div>
-        <div class="input-field col s12">
-          <label for="isBorn">Date de Naissance :</label>
-          <input  
-          
-            type="text"
-            class="datepicker"
-            id="isBorn"
-            [(ngModel)]="candidat.isBorn"
-            name="isBorn"
-          />
-        </div>
-        <div class="input-field col s12">
-          <label for="statut">Statut :</label>
-          <input  
-          
-            type="text"
-            id="statut"
-            [(ngModel)]="candidat.statut"
-            name="statut"
-          />
+
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">work</i>
+            <label for="statut">Statut :</label>
+            <input
+              type="text"
+              id="statut"
+              [(ngModel)]="candidat.statut"
+              name="statut"
+            />
+          </div>
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">directions_car</i>
+            <label for="moving">Moyen de déplacement :</label>
+            <input
+              type="text"
+              id="moving"
+              [(ngModel)]="candidat.moving"
+              name="moving"
+            />
+          </div>
         </div>
 
-        <div class="input-field col s12">
-          <label for="family">Situation familiale :</label>
-          <input
-            type="text"
-            id="family"
-            [(ngModel)]="candidat.family"
-            name="family"
-          />
-        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">date_range</i>
+            <label for="isBorn">Date de Naissance :</label>
+            <input
+              type="text"
+              class="datepicker"
+              id="isBorn"
+              placeholder="JJMMAAAA"
+              [(ngModel)]="candidat.isBorn"
+              name="isBorn"
+            />
+          </div>
 
-        <div class="input-field col s12">
-          <label for="moving">Moyen de déplacement :</label>
-          <input
-            type="text"
-            id="moving"
-            [(ngModel)]="candidat.moving"
-            name="moving"
-          />
-        </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">wc</i>
+            <label for="family">Situation familiale :</label>
+            <input
+              type="text"
+              id="family"
+              [(ngModel)]="candidat.family"
+              name="family"
+            />
+          </div>
 
-        <div class="input-field col s12">
-          <label for="experience">Experience :</label>
-          <input
-            type="text"
-            id="experience"
-            [(ngModel)]="candidat.experience"
-            name="experience"
-          />
-        </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">insert_chart</i>
+            <label for="experience">Experience :</label>
+            <input
+              type="text"
+              id="experience"
+              [(ngModel)]="candidat.experience"
+              name="experience"
+            />
+          </div>
 
-        <div class="input-field col s12">
-          <label for="technology">Technologies :</label>
-          <input
-            type="text"
-            id="technology"
-            [(ngModel)]="candidat.technology"
-            name="technology"
-          />
-        </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">computer</i>
+            <label for="technology">Technologies :</label>
+            <input
+              type="text"
+              id="technology"
+              [(ngModel)]="candidat.technology"
+              name="technology"
+            />
+          </div>
 
-        <div class="input-field col s12">
-          <label for="technology">Note :</label>
-          <textarea
-            type="text"
-            id="technology"
-            class="materialize-textarea"
-            [(ngModel)]="candidat.note"
-            name="note"
-          ></textarea>
-        </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">more</i>
+            <label for="technology">Note :</label>
+            <textarea
+              type="text"
+              id="technology"
+              class="materialize-textarea"
+              [(ngModel)]="candidat.note"
+              name="note"
+            ></textarea>
+          </div>
 
-        <div class="divider"></div>
-        <div class="section center">
-          <button type="submit" class="waves-effect waves-light btn">
-            Valider
-          </button>
+          <div class="divider"></div>
+          <div class="section center">
+            <button type="submit" class="waves-effect waves-light btn">
+              Valider
+            </button>
+          </div>
         </div>
       </div>
     </div>

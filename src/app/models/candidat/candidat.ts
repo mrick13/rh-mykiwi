@@ -1,5 +1,5 @@
 export class Candidat { 
-  id! : number ;
+  id! : string ;
   name! : string;
   firstname! : string;
   isBorn! : string;

@@ -8,6 +8,7 @@ import { Observable, catchError, from, map, of } from 'rxjs';
 })
 export class CandidatService {
   
+  candidat$! : Observable<Candidat[]>
 
   getCandidatList(): Promise<Candidat[]> {
     const dbRef = ref(getDatabase());
@@ -30,6 +31,23 @@ export class CandidatService {
       });
   }
 
+  getCandidatById(candidatId: string): Promise<Candidat> {
+    const dbRef = ref(getDatabase());
+    return new Promise((resolve, reject) => {
+      get(child(dbRef, `candidats/${candidatId}`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          this.candidat$ = snapshot.val();
+          resolve(snapshot.val());
+        } else {
+          console.log("No data available");
+          reject(snapshot.val());
+        }
+      }).catch((error) => {
+        console.error(error);
+        reject();
+      });
+    });    
+  }
 
    addCandidat(candidat: Candidat) {
      const db = getDatabase();

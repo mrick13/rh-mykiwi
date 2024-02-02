@@ -6,25 +6,28 @@ import { CandidatService } from '../candidat.service';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent implements OnInit {
- candidatList! : Candidat [];
- candidat! : Candidat ;
+  candidatList!: Candidat[];
+  candidat!: Candidat;
 
   constructor(
-    private route : ActivatedRoute,
+    private route: ActivatedRoute,
     private router: Router,
-    private candidatService : CandidatService
+    private candidatService: CandidatService
   ) {}
   ngOnInit() {
-    const candidatName : string| null  = this.route.snapshot.paramMap.get('name');
+    const candidatId: string | null = this.route.snapshot.paramMap.get('id');
+    console.log(candidatId);
+    if(candidatId) {
+      this.candidatService.getCandidatById(candidatId).then((candidat : any) =>{
+        this.candidat = candidat;
+      })
+    }
   }
+
+
+
 }
 
-
-// if(candidatName) {
-//   this.candidatService.getCandidatList(candidatName).then((candidat : any)=>{
-//     this.candidat = candidat
-//   })
-// }

@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
     }
 
   goToCandidat(candidat : Candidat) {
-    this.router.navigate(['/candidat', candidat.name ]);
+    this.router.navigate(['/candidat', candidat.id ]);
   }
   
 }

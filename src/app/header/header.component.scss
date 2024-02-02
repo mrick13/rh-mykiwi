@@ -11,18 +11,7 @@ header {
   width: $header-width;
   padding: $header-padding;
   height: 100%;
-
-  // Style pour les liens dans le header
-  a {
-    color: $header-text-color;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-
-    // Ajoutez d'autres styles pour les liens
-    // ...
   }
-}
 
 // Style pour le contenu principal de la page
 main {

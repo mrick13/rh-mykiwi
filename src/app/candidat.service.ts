@@ -50,8 +50,13 @@ export class CandidatService {
     });
   }
 
-  addCandidat(candidat: Candidat) {
+  addCandidat(formValue : {name : string , firstname : string, isBorn : string , email : string , city : string , phone : string , statut : string , nationality : string , family  : string , moving : string , experience : string, technology : string , note : string} , generatedId : string) {
     const db = getDatabase();
+    const candidat : Candidat ={
+      ...formValue,
+      id : generatedId , 
+      isRecruited: false
+    }
     console.log(candidat);
     return set(ref(db, 'candidats/' + candidat.id), candidat);
   }

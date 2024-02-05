@@ -8,7 +8,7 @@ import { HeaderComponent } from '../header/header.component';
 import { CandidatFormComponent } from '../candidat-form/candidat-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule , } from '@angular/forms';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { CustomDatePipe } from '../custom-date.pipe';
 
@@ -24,12 +24,13 @@ const candidatRoutes: Routes = [
     AddCandidatComponent,
     DetailComponent,
     CandidatFormComponent,
-    CustomDatePipe
+    CustomDatePipe,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(candidatRoutes)
+    RouterModule.forChild(candidatRoutes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

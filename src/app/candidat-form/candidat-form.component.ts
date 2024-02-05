@@ -2,9 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Candidat } from '../models/candidat/candidat';
 import { CandidatService } from '../candidat.service';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-import * as M from 'materialize-css';
-import { DatePickerOption } from '../shared/datePickerOption';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-candidat-form',
@@ -13,38 +12,49 @@ import { DatePickerOption } from '../shared/datePickerOption';
 })
 export class CandidatFormComponent implements OnInit {
   @Input() candidat!: Candidat;
+  candidatForm!: FormGroup;
+  candidatPreview$!: Observable<Candidat>;
 
   constructor(
     private candidatService: CandidatService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.candidatForm = this.formBuilder.group({
+      name: [null, [Validators.required]],
+      firstname: [null, [Validators.required]],
+      email: [null],
+      phone: [null],
+      city: [null],
+      nationality: [null],
+      statut: [null],
+      moving: [null],
+      isBorn: [
+        null,
+        [Validators.required, Validators.maxLength(8), Validators.minLength(8)],
+      ],
+      family: [null],
+      experience: [null],
+      technology: [null],
+      note: [null],
+    });
 
-  onSubmitForm(form: NgForm) {
-    console.log(this.candidat.isBorn);
-    this.candidat.id = `${this.candidat.name}${this.candidat.firstname}${this.candidat.isBorn}`;
+    // this.candidatPreview$ = this.candidatForm.valueChanges.pipe(
+    //   map((formValue) => ({
+    //     ...formValue,
+    //   }))
+    // );
+  }
 
-    this.candidatService.addCandidat(this.candidat).then(() => {
-      this.router.navigate(['candidat/', this.candidat.id]); //une fois crée => renvoie sur le détail du candidat crée
+  onSubmitForm() {
+    const id = `${this.candidatForm.value.name}${this.candidatForm.value.firstname}${this.candidatForm.value.isBorn}`.replaceAll(
+      ' ',
+      '-'
+    )
+    this.candidatService.addCandidat(this.candidatForm.value, id).then(() => {
+      this.router.navigate(['candidat/', id]); //une fois crée => renvoie sur le détail du candidat crée
     });
   }
 }
-
-// let formattedId;
-
-// if (+this.candidat.id >= 1 && +this.candidat.id <= 9) {
-//   formattedId = `0${this.candidat.id}`;
-// } else {
-//   formattedId = this.candidat.id.toString();
-// }
-
-// const options = new DatePickerOption();
-// var elems = document.querySelectorAll('.datepicker');
-// var instances = M.Datepicker.init(elems, options.options);
-// const isBorn = document.getElementById('isBorn');
-// if (isBorn != null) {
-//   isBorn.addEventListener('change', (event) => {
-//     console.log(event);
-//   });
-// }

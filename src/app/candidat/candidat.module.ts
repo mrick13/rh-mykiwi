@@ -10,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { CustomDatePipe } from '../custom-date.pipe';
 
 const candidatRoutes: Routes = [
   { path: '', component: ListComponent},
@@ -23,6 +24,7 @@ const candidatRoutes: Routes = [
     AddCandidatComponent,
     DetailComponent,
     CandidatFormComponent,
+    CustomDatePipe
   ],
   imports: [
     CommonModule,

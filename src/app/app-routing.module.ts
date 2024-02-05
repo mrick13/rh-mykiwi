@@ -6,7 +6,7 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   
-  { path : 'list/' , component: ListComponent},
+  { path : 'candidat/' , component: ListComponent},
   { path : '' , component: AppComponent},
   { path : '**' , component: LoaderComponent},
 

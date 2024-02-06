@@ -2,8 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Candidat } from '../models/candidat/candidat';
 import { CandidatService } from '../candidat.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, map } from 'rxjs';
+// import { PAYS } from '../models/candidat/pays';
 
 @Component({
   selector: 'app-candidat-form',
@@ -14,6 +15,7 @@ export class CandidatFormComponent implements OnInit {
   @Input() candidat!: Candidat;
   candidatForm!: FormGroup;
   candidatPreview$!: Observable<Candidat>;
+  // Pays! : typeof PAYS[];
 
   constructor(
     private candidatService: CandidatService,

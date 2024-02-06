@@ -21,7 +21,7 @@
     <tr *ngFor="let candidat of candidatList | async">
       <td>{{ candidat.name | uppercase }} {{ candidat.firstname }}</td>
       <td>{{ candidat.email }}</td>
-      <td>{{ candidat.phone }}</td>
+      <td>{{ candidat.phone | customPhone}}</td>
       <td>{{ candidat.nationality }}</td>
       <td>{{ candidat.isBorn | customDate}}</td>
       <td>

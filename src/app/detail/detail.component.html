@@ -6,7 +6,7 @@
       <div class="info-section">
         <p class="info-label">Numéro de téléphone du candidat:</p>
         <p class="info-value">
-          {{ candidat.phone }}
+          {{ candidat.phone | customPhone }}
         </p>
       </div>
       <div class="info-section">
@@ -57,10 +57,7 @@
           {{ candidat.moving }}
         </p>
       </div>
-      <i
-        class="material-icons clear-icon"
-        (click)="goSupprCandidat(candidat)"
-      >
+      <i class="material-icons clear-icon" (click)="goSupprCandidat(candidat)">
         clear
       </i>
     </div>

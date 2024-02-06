@@ -8,15 +8,18 @@ import { HeaderComponent } from '../header/header.component';
 import { CandidatFormComponent } from '../candidat-form/candidat-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
-import { FormsModule, ReactiveFormsModule , } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { CustomDatePipe } from '../custom-date.pipe';
+import { CustomDatePipe } from '../shared/custom-date.pipe';
+import { CustomPhonePipe } from '../shared/custom-phone.pipe';
+import { EditComponent } from '../edit/edit.component';
 
 const candidatRoutes: Routes = [
-  { path: '', component: ListComponent},
-  { path: 'candidat/add', component: AddCandidatComponent},
-  { path: 'candidat/:id', component: DetailComponent},
-]
+  { path: 'edit/candidat/:id' , component : EditComponent},
+  { path: '', component: ListComponent },
+  { path: 'candidat/add', component: AddCandidatComponent },
+  { path: 'candidat/:id', component: DetailComponent },
+];
 
 @NgModule({
   declarations: [
@@ -25,14 +28,16 @@ const candidatRoutes: Routes = [
     DetailComponent,
     CandidatFormComponent,
     CustomDatePipe,
+    CustomPhonePipe,
+    EditComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild(candidatRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class CandidatModule { }
+export class CandidatModule {}

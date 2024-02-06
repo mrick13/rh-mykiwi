@@ -2,7 +2,8 @@ import { Component, OnInit, Pipe } from '@angular/core';
 import { Candidat } from '../models/candidat/candidat';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CandidatService } from '../candidat.service';
-import { CustomDatePipe } from '../custom-date.pipe';
+import { CustomDatePipe } from '../shared/custom-date.pipe';
+import { CustomPhonePipe } from '../shared/custom-phone.pipe';
 
 @Component({
   selector: 'app-detail',
@@ -12,7 +13,8 @@ import { CustomDatePipe } from '../custom-date.pipe';
 export class DetailComponent implements OnInit {
   candidatList!: Candidat[];
   candidat!: Candidat;
-  customDate : Pipe = CustomDatePipe
+  customDate: Pipe = CustomDatePipe;
+  customPhone: Pipe = CustomPhonePipe;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,9 +31,9 @@ export class DetailComponent implements OnInit {
     }
   }
 
-  goSupprCandidat(candidat : Candidat) {
-    this.candidatService.deleteCandidatById(candidat.id).then(()  =>{
-      this.router.navigate([''])
+  goSupprCandidat(candidat: Candidat) {
+    this.candidatService.deleteCandidatById(candidat.id).then(() => {
+      this.router.navigate(['']);
     });
   }
 }

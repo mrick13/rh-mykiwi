@@ -13,12 +13,14 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { CustomDatePipe } from '../shared/custom-date.pipe';
 import { CustomPhonePipe } from '../shared/custom-phone.pipe';
 import { EditComponent } from '../edit/edit.component';
+import { ListCollabComponent } from '../list-collab/list-collab.component';
 
 const candidatRoutes: Routes = [
   { path: 'edit/candidat/:id' , component : EditComponent},
   { path: '', component: ListComponent },
   { path: 'candidat/add', component: AddCandidatComponent },
   { path: 'candidat/:id', component: DetailComponent },
+  { path: 'collaborateurs/:id' , component : ListCollabComponent},
 ];
 
 @NgModule({
@@ -30,6 +32,7 @@ const candidatRoutes: Routes = [
     CustomDatePipe,
     CustomPhonePipe,
     EditComponent,
+    ListCollabComponent
   ],
   imports: [
     CommonModule,

@@ -1,16 +1,12 @@
-/* Style général du formulaire pour écran d'ordinateur */
+
+.max-width {
+    width: 100%
+}
 form {
-    position: relative;
-    left: 125px;
-
-    /* Ajoutez ici d'autres styles spécifiques à votre formulaire pour écran d'ordinateur */
-
-    /* Style spécifique pour tablette */
-    @media only screen and (max-width: 768px) {
-        left: 250px;
-        top: initial; /* Réinitialise la propriété 'top' à sa valeur initiale pour tablette */
-
-        /* Ajoutez ici d'autres styles spécifiques à votre formulaire pour tablette */
-    }
+    margin: auto;
+    width: 65%;
 }
 
+.card-panel {
+    margin: 0;
+}

@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from './loader.service';
 import { CandidatModule } from './candidat/candidat.module';
+import { ListCollabComponent } from './list-collab/list-collab.component';
 
 @NgModule({
   declarations: [

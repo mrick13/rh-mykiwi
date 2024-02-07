@@ -25,29 +25,24 @@ export class CandidatFormComponent implements OnInit {
 
   ngOnInit() {
     this.candidatForm = this.formBuilder.group({
-      name: [null, [Validators.required]],
-      firstname: [null, [Validators.required]],
-      email: [null],
-      phone: [null],
-      city: [null],
-      nationality: [null],
-      statut: [null],
-      moving: [null],
+      name: [this.candidat.name, [Validators.required]],
+      firstname: [this.candidat.firstname, [Validators.required]],
+      email: [this.candidat.email],
+      phone: [this.candidat.phone],
+      city: [this.candidat.city],
+      nationality: [this.candidat.nationality],
+      statut: [this.candidat.statut],
+      moving: [this.candidat.moving],
       isBorn: [
-        null,
+        this.candidat.isBorn,
         [Validators.required, Validators.maxLength(8), Validators.minLength(8)],
       ],
-      family: [null],
-      experience: [null],
-      technology: [null],
-      note: [null],
+      family: [this.candidat.family],
+      experience: [this.candidat.experience],
+      technology: [this.candidat.technology],
+      note: [this.candidat.note],
+      isRecruited : [this.candidat.isRecruited]
     });
-
-    // this.candidatPreview$ = this.candidatForm.valueChanges.pipe(
-    //   map((formValue) => ({
-    //     ...formValue,
-    //   }))
-    // );
   }
 
   onSubmitForm() {

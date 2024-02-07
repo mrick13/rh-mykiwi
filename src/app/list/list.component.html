@@ -1,11 +1,8 @@
-<i
-  class="small material-icons"
-  style="position: fixed; bottom: 25px; right: 25px; cursor: pointer"
-  routerLink="/candidat/add"
->
-  add_circle
-</i>
-<!--icone de add -->
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large waves-effect waves-light"
+    ><i class="material-icons" routerLink="/candidat/add">add</i>
+  </a>
+</div>
 
 <table class="striped">
   <thead>
@@ -15,15 +12,17 @@
       <th>Numéro de téléphone</th>
       <th>Nationalité</th>
       <th>Date de Naissance</th>
+      <th>Technologie</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let candidat of candidatList | async">
       <td>{{ candidat.name | uppercase }} {{ candidat.firstname }}</td>
       <td>{{ candidat.email }}</td>
-      <td>{{ candidat.phone | customPhone}}</td>
+      <td>{{ (candidat.phone!== null)? (candidat.phone | customPhone) : '' }}</td>
       <td>{{ candidat.nationality }}</td>
-      <td>{{ candidat.isBorn | customDate}}</td>
+      <td>{{ candidat.isBorn | customDate }}</td>
+      <td>{{candidat.technology}}</td>
       <td>
         <i
           class="material-icons"

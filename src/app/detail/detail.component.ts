@@ -23,7 +23,6 @@ export class DetailComponent implements OnInit {
   ) {}
   ngOnInit() {
     const candidatId: string | null = this.route.snapshot.paramMap.get('id');
-    console.log(candidatId);
     if (candidatId) {
       this.candidatService.getCandidatById(candidatId).then((candidat: any) => {
         this.candidat = candidat;
@@ -35,5 +34,14 @@ export class DetailComponent implements OnInit {
     this.candidatService.deleteCandidatById(candidat.id).then(() => {
       this.router.navigate(['']);
     });
+  }
+
+  goToEditCandidat() {
+    this.router.navigate(['/edit/candidat/' , this.candidat.id ])
+  }
+
+  addCollab() {
+    this.candidat.isRecruited = true
+    this.router.navigate(['/collaborateurs/:id'])
   }
 }

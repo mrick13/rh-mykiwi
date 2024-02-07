@@ -21,11 +21,12 @@ export class ListComponent implements OnInit {
   ) {}
 
     ngOnInit() {
-      this.candidatList = this.candidatService.getCandidatList()
+      this.candidatList = this.candidatService.getCandidatList(true)
     }
 
   goToCandidat(candidat : Candidat) {
     this.router.navigate(['/candidat', candidat.id ]);
   }
+  
   
 }

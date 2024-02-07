@@ -11,13 +11,24 @@ header {
   width: $header-width;
   padding: $header-padding;
   height: 100%;
-  }
+  padding-top: 1rem;
+  position: fixed;
+  min-height: 100vh;
+}
 
 // Style pour le contenu principal de la page
-main {
-  margin-left: $header-width;
-  padding: $header-padding;
+// main {
+//   margin-left: $header-width;
+//   padding: $header-padding;
 
-  // Ajoutez d'autres styles selon vos besoins
-  // ...
+// Ajoutez d'autres styles selon vos besoins
+// ...
+
+li {
+  margin: 1rem;
+}
+
+a {
+  color: white;
+  font-size: large;
 }

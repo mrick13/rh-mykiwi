@@ -1,164 +1,172 @@
-<form [formGroup]="candidatForm">
-  <div class="row">
-    <div class="col s8 offset-s2">
-      <div class="card-panel">
-        <div class="row">
-          <div class="input-field col s12 m6">
-            <i class="material-icons prefix">account_box</i>
-            <label for="name">Nom :</label>
-            <input
-              formControlName="name"
-              type="text"
-              id="name"
-              name="name"
-            />
-          </div>
-          <div class="input-field col s12 m6">
-            <label for="firstname">Prénom : </label>
-            <input
-              formControlName="firstname"
-              type="text"
-              id="firstname"
-              name="firstname"
-            />
-          </div>
+<div class="max-width">
+  <form [formGroup]="candidatForm">
+    <div class="card-panel">
+      <div class="row" *ngIf="!candidat.name">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">account_box</i>
+          <label for="name">Nom :</label>
+          <input formControlName="name" type="text" id="name" name="name" />
         </div>
-        <div class="row">
-          <div class="input-field col s12 m6">
-            <i class="material-icons prefix">alternate_email</i>
-            <label for="email">Email :</label>
-            <input
-              formControlName="email"
-              type="text"
-              id="email"
-              name="email"
-            />
-          </div>
-
-          <div class="input-field col s12 m6">
-            <i class="material-icons prefix">phone</i>
-            <label for="phone">Numéro de téléphone :</label>
-            <input
-              formControlName="phone"
-              type="text"
-              id="phone"
-              name="phone"
-            />
-          </div>
+        <div class="input-field col s12 m6">
+          <label for="firstname">Prénom : </label>
+          <input
+            formControlName="firstname"
+            type="text"
+            id="firstname"
+            name="firstname"
+          />
         </div>
-        <div class="row">
-          <div class="input-field col s12 m6">
-            <i class="material-icons prefix">location_city</i>
-            <label for="city">Ville:</label>
-            <input
-              formControlName="city"
-              type="text"
-              id="city"
-              name="city"
-            />
-          </div>
-
-          <div class="input-field col s12 m6">
-            <i class="material-icons prefix">flag</i>
-            <label for="nationality">Nationalité :</label>
-            <input
-              formControlName="nationality"
-              type="text"
-              id="nationality"
-              name="nationality"
-            />
-          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">alternate_email</i>
+          <label for="email" *ngIf="!candidat.email">Email :</label>
+          <input formControlName="email" type="text" id="email" name="email" />
         </div>
 
-        <div class="row">
-          <div class="input-field col s12 m6">
-            <i class="material-icons prefix">work</i>
-            <label for="statut">Statut :</label>
-            <input
-              formControlName="statut"
-              type="text"
-              id="statut"
-              name="statut"
-            />
-          </div>
-          <div class="input-field col s12 m6">
-            <i class="material-icons prefix">directions_car</i>
-            <label for="moving">Moyen de déplacement :</label>
-            <input
-              formControlName="moving"
-              type="text"
-              id="moving"
-              name="moving"
-            />
-          </div>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">phone</i>
+          <label for="phone" *ngIf="!candidat.phone"
+            >Numéro de téléphone :</label
+          >
+          <input formControlName="phone" type="text" id="phone" name="phone" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">location_city</i>
+          <label for="city" *ngIf="!candidat.city">Ville:</label>
+          <input formControlName="city" type="text" id="city" name="city" />
         </div>
 
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">date_range</i>
-            <label for="isBorn">Date de Naissance :</label>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">flag</i>
+          <label for="nationality" *ngIf="!candidat.nationality"
+            >Nationalité :</label
+          >
+          <input
+            formControlName="nationality"
+            type="text"
+            id="nationality"
+            name="nationality"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">work</i>
+          <label for="statut" *ngIf="!candidat.statut">Statut :</label>
+          <input
+            formControlName="statut"
+            type="text"
+            id="statut"
+            name="statut"
+          />
+        </div>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">directions_car</i>
+          <label for="moving" *ngIf="!candidat.moving"
+            >Moyen de déplacement :</label
+          >
+          <input
+            formControlName="moving"
+            type="text"
+            id="moving"
+            name="moving"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12" *ngIf="!candidat.isBorn">
+          <i class="material-icons prefix">date_range</i>
+          <label for="isBorn">Date de Naissance :</label>
+          <input
+            formControlName="isBorn"
+            type="text"
+            id="isBorn"
+            placeholder="JJMMAAAA"
+            name="isBorn"
+          />
+        </div>
+
+        <div class="input-field col s12">
+          <i class="material-icons prefix">wc</i>
+          <label for="family" *ngIf="!candidat.family"
+            >Situation familiale :</label
+          >
+          <input
+            formControlName="family"
+            type="text"
+            id="family"
+            name="family"
+          />
+        </div>
+
+        <div class="input-field col s12">
+          <i class="material-icons prefix">insert_chart</i>
+          <label for="experience" *ngIf="!candidat.experience"
+            >Experience :</label
+          >
+          <input
+            formControlName="experience"
+            type="text"
+            id="experience"
+            name="experience"
+          />
+        </div>
+
+        <div class="input-field col s12">
+          <i class="material-icons prefix">computer</i>
+          <label for="technology" *ngIf="!candidat.technology"
+            >Technologies :</label
+          >
+          <input
+            formControlName="technology"
+            type="text"
+            id="technology"
+            name="technology"
+          />
+        </div>
+
+        <div class="input-field col s12">
+          <i class="material-icons prefix">more</i>
+          <label for="note" *ngIf="!candidat.note">Note :</label>
+          <textarea
+            formControlName="note"
+            type="text"
+            id="note"
+            class="materialize-textarea"
+            name="note"
+          ></textarea>
+        </div>
+
+        <p>
+          <label>
             <input
-              formControlName="isBorn"
-              type="text"
-              id="isBorn"
-              placeholder="JJMMAAAA"
-              name="isBorn"
+              type="checkbox"
+              formControlName="isRecruited"
+              id="isRecruited"
+              class="filled-in"
+              name="isRecruited"
             />
-          </div>
+            <span>Collaborateurs</span>
+          </label>
+        </p>
 
-          <div class="input-field col s12">
-            <i class="material-icons prefix">wc</i>
-            <label for="family">Situation familiale :</label>
-            <input
-              formControlName="family"
-              type="text"
-              id="family"
-              name="family"
-            />
-          </div>
-
-          <div class="input-field col s12">
-            <i class="material-icons prefix">insert_chart</i>
-            <label for="experience">Experience :</label>
-            <input
-              formControlName="experience"
-              type="text"
-              id="experience"
-              name="experience"
-            />
-          </div>
-
-          <div class="input-field col s12">
-            <i class="material-icons prefix">computer</i>
-            <label for="technology">Technologies :</label>
-            <input
-              formControlName="technology"
-              type="text"
-              id="technology"
-              name="technology"
-            />
-          </div>
-
-          <div class="input-field col s12">
-            <i class="material-icons prefix">more</i>
-            <label for="technology">Note :</label>
-            <textarea
-              formControlName="technology"
-              type="text"
-              id="note"
-              class="materialize-textarea"
-              name="note"
-            ></textarea>
-          </div>
-
-          <div class="divider"></div>
-          <div class="section center">
-            <button type="submit" (click)="onSubmitForm()" [disabled]="candidatForm.invalid" class="waves-effect waves-light btn">
-              Valider
-            </button>
-          </div>
+        <div class="divider"></div>
+        <div class="section center">
+          <button
+            type="submit"
+            (click)="onSubmitForm()"
+            [disabled]="candidatForm.invalid"
+            class="waves-effect waves-light btn"
+          >
+            Valider
+          </button>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>

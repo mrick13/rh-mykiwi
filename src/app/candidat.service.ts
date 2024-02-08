@@ -76,6 +76,7 @@ export class CandidatService {
       experience: string;
       technology: string;
       note: string;
+      isRecruited : boolean;
     },
     generatedId: string
   ) {

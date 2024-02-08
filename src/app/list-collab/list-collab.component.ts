@@ -24,7 +24,7 @@ export class ListCollabComponent implements OnInit{
 
   goToCollab(candidat : Candidat) {
     if(candidat.isRecruited === true) {
-      this.router.navigate(['/collaborateurs', candidat.id])
+      this.router.navigate(['/collaborateurs/', candidat.id])
     } 
     console.log('Pas de collaborateurs disponible');
   }

@@ -54,4 +54,8 @@ export class CandidatFormComponent implements OnInit {
       this.router.navigate(['candidat/', id]); //une fois crée => renvoie sur le détail du candidat crée
     });
   }
+
+  isChecked() {
+
+  }
 }

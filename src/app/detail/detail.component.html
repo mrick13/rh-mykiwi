@@ -1,86 +1,13 @@
 <div *ngIf="candidat" class="full-width">
   <h1>Détail du candidat {{ candidat.name }} {{ candidat.firstname }}</h1>
-  <div class="candidate-info">
-    <h2>{{ candidat.name }} {{ candidat.firstname }}</h2>
-    <div class="info-section">
-      <p class="info-label">Numéro de téléphone du candidat:</p>
-      <p class="info-value">
-        {{ candidat.phone | customPhone }}
-      </p>
-    </div>
-    <div class="info-section">
-      <p class="info-label">Email du candidat:</p>
-      <p class="info-value">
-        {{ candidat.email }}
-      </p>
-    </div>
-    <div class="info-section">
-      <p class="info-label">Date de Naissance du candidat:</p>
-      <p class="info-value">
-        {{ candidat.isBorn | customDate }}
-      </p>
-    </div>
-    <div class="info-section">
-      <p class="info-label">Nationalité du candidat:</p>
-      <p class="info-value">
-        {{ candidat.nationality }}
-      </p>
-    </div>
-    <div class="info-section">
-      <p class="info-label">Ville actuel du candidat:</p>
-      <p class="info-value">
-        {{ candidat.city }}
-      </p>
-    </div>
-    <div class="info-section">
-      <p class="info-label">Experience du candidat:</p>
-      <p class="info-value">
-        {{ candidat.experience }}
-      </p>
-    </div>
-    <div class="info-section">
-      <p class="info-label">Technologie du candidat:</p>
-      <p class="info-value">
-        {{ candidat.technology }}
-      </p>
-    </div>
-    <div class="info-section">
-      <p class="info-label">Situation familial du candidat:</p>
-      <p class="info-value">
-        {{ candidat.family }}
-      </p>
-    </div>
-    <div class="info-section">
-      <p class="info-label">Les notes du candidat (si entretien fait):</p>
-      <p class="info-value">
-        {{ candidat.note }}
-      </p>
-    </div>
-    <div class="info-section">
-      <p class="info-label">Moyen de déplacement du candidat:</p>
-      <p class="info-value">
-        {{ candidat.moving }}
-      </p>
-    </div>
-    <!-- <a class="waves-effect waves-light btn">
-        <i class="material-icons" >
-          clear
-        </i>
-      </a>
-      <a class="waves-effect waves-light btn">
-        supprimer
-        <i class="material-icons" >
-          move_edit
-        </i>
-      </a> -->
-  </div>
+  <app-detail-card [candidat]="candidat"></app-detail-card>
   <a class="waves-effect waves-light btn red" (click)="goSupprCandidat(candidat)"
-    ><i class="material-icons left">delete</i>Supprimer</a
-  >
-  <a class="waves-effect waves-light btn" (click)="goToEditCandidat()"
-    ><i class="material-icons left">edit</i>Modifier</a
-  >
-  <a class="waves-effect waves-light btn" (click)="addCollab()"
+      ><i class="material-icons left">delete</i>Supprimer</a
+    >
+    <a class="waves-effect waves-light btn" (click)="goToEditCandidat()"
+      ><i class="material-icons left">edit</i>Modifier</a
+    >
+    <a class="waves-effect waves-light btn" (click)="addCollab()"
     ><i class="material-icons left">arrow_forward</i>Collaborateurs</a
   >
 </div>

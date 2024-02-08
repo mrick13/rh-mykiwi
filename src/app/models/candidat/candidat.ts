@@ -9,7 +9,7 @@ export class Candidat {
   statut! : string;
   nationality! : string;
   family! : string;  //situation familiale
-  moving! : string;  //moyen de déplacement
+  moving! : boolean;  //moyen de déplacement
   experience! : string; 
   technology! : string;  //technologies utilisé par le candidat
   note! : string; //note d'entretien 

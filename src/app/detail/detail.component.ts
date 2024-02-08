@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CandidatService } from '../candidat.service';
 import { CustomDatePipe } from '../shared/custom-date.pipe';
 import { CustomPhonePipe } from '../shared/custom-phone.pipe';
+import { getDatabase, ref, set } from 'firebase/database';
 
 @Component({
   selector: 'app-detail',
@@ -11,6 +12,7 @@ import { CustomPhonePipe } from '../shared/custom-phone.pipe';
   styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent implements OnInit {
+
   candidatList!: Candidat[];
   candidat!: Candidat;
   customDate: Pipe = CustomDatePipe;
@@ -21,11 +23,14 @@ export class DetailComponent implements OnInit {
     private router: Router,
     private candidatService: CandidatService
   ) {}
+
   ngOnInit() {
     const candidatId: string | null = this.route.snapshot.paramMap.get('id');
     if (candidatId) {
       this.candidatService.getCandidatById(candidatId).then((candidat: any) => {
         this.candidat = candidat;
+        console.log(this.candidat);
+        
       });
     }
   }
@@ -41,7 +46,10 @@ export class DetailComponent implements OnInit {
   }
 
   addCollab() {
-    this.candidat.isRecruited = true
-    this.router.navigate(['/collaborateurs/:id'])
+    const db = getDatabase();
+    this.candidat.isRecruited = true;
+    set(ref(db, 'candidats/' + this.candidat.id), this.candidat).then(
+      () => this.router.navigate(['/collaborateurs'])
+    );
   }
 }

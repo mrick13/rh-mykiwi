@@ -1,6 +1,6 @@
 <div *ngIf="candidat" class="full-width">
     <h1>Détail du collaborateurs {{ candidat.name }} {{ candidat.firstname }}</h1>
-    <app-detail-card></app-detail-card>
+    <app-detail-card [candidat]="candidat"> </app-detail-card>
     <a class="waves-effect waves-light btn red" (click)="goSupprCandidat(candidat)"
       ><i class="material-icons left">delete</i>Supprimer</a
     >
@@ -9,4 +9,3 @@
     >
     
   </div>
-  

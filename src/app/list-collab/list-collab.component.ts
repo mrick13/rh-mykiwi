@@ -18,14 +18,12 @@ export class ListCollabComponent implements OnInit{
 
   ngOnInit() {
     this.candidatList = this.candidatService.getCandidatList(false);
-    console.log('la ');
     
   }
 
   goToCollab(candidat : Candidat) {
     if(candidat.isRecruited === true) {
       this.router.navigate(['/collaborateurs/', candidat.id])
-    } 
-    console.log('Pas de collaborateurs disponible');
+    }
   }
 }

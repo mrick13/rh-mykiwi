@@ -72,11 +72,10 @@ export class CandidatService {
       statut: string;
       nationality: string;
       family: string;
-      moving: string;
+      moving: boolean;
       experience: string;
       technology: string;
       note: string;
-      isRecruited : boolean;
     },
     generatedId: string
   ) {

@@ -40,8 +40,7 @@ export class CandidatFormComponent implements OnInit {
       family: [this.candidat.family],
       experience: [this.candidat.experience],
       technology: [this.candidat.technology],
-      note: [this.candidat.note],
-      isRecruited : [this.candidat.isRecruited]
+      note: [this.candidat.note]
     });
   }
 
@@ -53,9 +52,5 @@ export class CandidatFormComponent implements OnInit {
     this.candidatService.addCandidat(this.candidatForm.value, id).then(() => {
       this.router.navigate(['candidat/', id]); //une fois crée => renvoie sur le détail du candidat crée
     });
-  }
-
-  isChecked() {
-
   }
 }

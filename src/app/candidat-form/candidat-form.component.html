@@ -67,14 +67,16 @@
         <div class="input-field col s12 m6">
           <i class="material-icons prefix">directions_car</i>
           <label for="moving" *ngIf="!candidat.moving"
-            >Moyen de déplacement :</label
+            >Véhiculé :</label
           >
-          <input
-            formControlName="moving"
-            type="text"
-            id="moving"
-            name="moving"
-          />
+        </div>
+        <div class="switch">
+          <label class="deplacement">
+            Non
+            <input type="checkbox" />
+            <span class="lever"></span>
+            Oui
+          </label>
         </div>
       </div>
 
@@ -141,19 +143,6 @@
             name="note"
           ></textarea>
         </div>
-
-        <p>
-          <label>
-            <input
-              type="checkbox"
-              formControlName="isRecruited"
-              id="isRecruited"
-              class="filled-in"
-              name="isRecruited"
-            />
-            <span>Collaborateurs</span>
-          </label>
-        </p>
 
         <div class="divider"></div>
         <div class="section center">

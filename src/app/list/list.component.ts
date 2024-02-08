@@ -12,23 +12,19 @@ import { CandidatService } from '../candidat.service';
   }
 })
 export class ListComponent implements OnInit {
+
   candidatList!: Promise<Candidat[]>;
   
-
   constructor(
     private router : Router,
     private candidatService : CandidatService
   ) {}
 
-    ngOnInit() {
-      this.candidatList = this.candidatService.getCandidatList(true)
-      
-    }
+  ngOnInit() {
+    this.candidatList = this.candidatService.getCandidatList(true)
+  }
 
   goToCandidat(candidat : Candidat) {
     this.router.navigate(['/candidat', candidat.id ]);
-    console.log(candidat.isRecruited);
   }
-  
-  
 }

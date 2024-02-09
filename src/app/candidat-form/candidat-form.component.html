@@ -56,27 +56,29 @@
       <div class="row">
         <div class="input-field col s12 m6">
           <i class="material-icons prefix">work</i>
+          <select name="statut" id="statut" formControlName="statut">
+            <option value="Recherche d'emploi">Recherche d'emploi</option>
+            <option value="Employé">Employé</option>
+          </select>
           <label for="statut" *ngIf="!candidat.statut">Statut :</label>
-          <input
-            formControlName="statut"
-            type="text"
-            id="statut"
-            name="statut"
-          />
         </div>
+
         <div class="input-field col s12 m6">
           <i class="material-icons prefix">directions_car</i>
-          <label for="moving" *ngIf="!candidat.moving"
-            >Véhiculé :</label
-          >
-        </div>
-        <div class="switch">
-          <label class="deplacement">
-            Non
-            <input type="checkbox" />
-            <span class="lever"></span>
-            Oui
-          </label>
+          <label for="moving" *ngIf="!candidat.moving">Véhiculé : </label>
+          <div class="switch col offset-m2">
+            <label class="deplacement">
+              Non
+              <input
+                type="checkbox"
+                name="moving"
+                id="moving"
+                formControlName="moving"
+              />
+              <span class="lever"></span>
+              Oui
+            </label>
+          </div>
         </div>
       </div>
 
@@ -95,15 +97,16 @@
 
         <div class="input-field col s12">
           <i class="material-icons prefix">wc</i>
+          <select multiple name="family" id="family" formControlName="family">
+            <option value="Célibataire">Célibataire</option>
+            <option value="Pacsé">Pacsé</option>
+            <option value="Marié">Marié</option>
+            <option value="Concubinage">Concubinage</option>
+            <option value="Divorcé">Divorcé</option>
+          </select>
           <label for="family" *ngIf="!candidat.family"
             >Situation familiale :</label
           >
-          <input
-            formControlName="family"
-            type="text"
-            id="family"
-            name="family"
-          />
         </div>
 
         <div class="input-field col s12">
@@ -121,15 +124,24 @@
 
         <div class="input-field col s12">
           <i class="material-icons prefix">computer</i>
+          <select
+            multiple
+            name="technology"
+            id="technology"
+            formControlName="technology"
+          >
+            <option value="Angular">Angular</option>
+            <option value="Java">Java</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value=".net">.net</option>
+            <option value="PHP">PHP</option>
+            <option value="React.js">React.js</option>
+            <option value="Vue.js">Vue.js</option>
+            <option value="Python">Python</option>
+          </select>
           <label for="technology" *ngIf="!candidat.technology"
             >Technologies :</label
           >
-          <input
-            formControlName="technology"
-            type="text"
-            id="technology"
-            name="technology"
-          />
         </div>
 
         <div class="input-field col s12">

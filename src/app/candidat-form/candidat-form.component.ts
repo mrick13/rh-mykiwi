@@ -3,7 +3,8 @@ import { Candidat } from '../models/candidat/candidat';
 import { CandidatService } from '../candidat.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
+import * as M from 'materialize-css' ;
 // import { PAYS } from '../models/candidat/pays';
 
 @Component({
@@ -24,6 +25,9 @@ export class CandidatFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
     this.candidatForm = this.formBuilder.group({
       name: [this.candidat.name, [Validators.required]],
       firstname: [this.candidat.firstname, [Validators.required]],
@@ -50,6 +54,8 @@ export class CandidatFormComponent implements OnInit {
       '-'
     )
     this.candidatService.addCandidat(this.candidatForm.value, id).then(() => {
+      console.log(this.candidat);
+      
       this.router.navigate(['candidat/', id]); //une fois crée => renvoie sur le détail du candidat crée
     });
   }

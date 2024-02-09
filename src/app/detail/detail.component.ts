@@ -48,6 +48,7 @@ export class DetailComponent implements OnInit {
   addCollab() {
     const db = getDatabase();
     this.candidat.isRecruited = true;
+    
     set(ref(db, 'candidats/' + this.candidat.id), this.candidat).then(
       () => this.router.navigate(['/collaborateurs'])
     );

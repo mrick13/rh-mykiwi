@@ -9,5 +9,9 @@ import { Candidat } from '../models/candidat/candidat';
 export class DetailCardComponent {
   @Input() candidat!: Candidat
 
-  
+  isMoving() {
+    if (this.candidat.moving === true) {
+      
+    }
+  }
 }

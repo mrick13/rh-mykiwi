@@ -56,10 +56,11 @@
   <div class="info-section">
     <p class="info-label">Véhiculé :</p>
     <p class="info-value">
-      {{ candidat.moving }}
+      <i *ngIf="candidat.moving === true" class="material-icons small  green-text text-darken-3">check</i>
+      <i *ngIf="candidat.moving !== true" class="material-icons small red-text">clear</i>
     </p>
   </div>
-</div>  
+</div>
 
 <!-- réseau_check -->
 <!-- check -->

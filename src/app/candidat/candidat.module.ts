@@ -13,14 +13,15 @@ import { EditComponent } from '../edit/edit.component';
 import { ListCollabComponent } from '../list-collab/list-collab.component';
 import { DetailCollabComponent } from '../detail-collab/detail-collab.component';
 import { DetailCardComponent } from '../detail-card/detail-card.component';
+import { AuthGuard } from '../auth-guard';
 
 const candidatRoutes: Routes = [
-  { path: 'edit/candidat/:id' , component : EditComponent},
-  { path: '', component: ListComponent },
-  { path: 'candidat/add', component: AddCandidatComponent },
-  { path: 'candidat/:id', component: DetailComponent },
-  { path: 'collaborateurs' , component: ListCollabComponent},
-  { path: 'collaborateurs/:id' , component : DetailCollabComponent},
+  { path: 'edit/candidat/:id' , component : EditComponent, canActivate: [AuthGuard] },
+  { path: '', component: ListComponent , canActivate: [AuthGuard] },
+  { path: 'candidat/add', component: AddCandidatComponent , canActivate: [AuthGuard] },
+  { path: 'candidat/:id', component: DetailComponent , canActivate: [AuthGuard] },
+  { path: 'collaborateurs' , component: ListCollabComponent , canActivate: [AuthGuard] },
+  { path: 'collaborateurs/:id' , component : DetailCollabComponent , canActivate: [AuthGuard] },
 ];
 
 @NgModule({

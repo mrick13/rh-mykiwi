@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col s12 m4 offset-m4">
+    <div class="card hoverable">
+      <div class="card-content center">
+        <span class="card-title">Créer votre compte</span>
+      </div>
+      <form [formGroup]="registrationForm">
+        <label for="email">Email</label>
+        <input
+          formControlName="email"
+          type="text"
+          id="email"
+          name="email"
+          required
+        />
+        <label for="password">Mot de passe</label>
+        <input
+          formControlName="password"
+          type="password"
+          id="password"
+          name="password"
+          required
+        />
+        <div class="card-action center">
+          <button
+            type="submit"
+            (click)="registrationOn()"
+            class="waves-effect waves-light btn"
+            routerLink=""
+            [disabled]="registrationForm.invalid"
+          >
+            S'inscrire !
+          </button>
+          <p>
+            <label> Vous avez déjà un compte ? Connectez-vous</label>
+            <a routerLink="/login" class="waves-effect waves-light btn">ICI</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

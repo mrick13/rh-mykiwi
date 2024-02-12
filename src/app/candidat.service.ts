@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { Candidat } from './models/candidat/candidat';
 import { child, get, getDatabase, ref, remove, set } from 'firebase/database';
 import { Observable, catchError, from, map, of } from 'rxjs';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CandidatService {
   candidat$!: Observable<Candidat[]>;
+  
+  constructor(private fbService: FirebaseService) {}
 
   getCandidatList(returnCandidat: boolean): Promise<Candidat[]> {
     const dbRef = ref(getDatabase());

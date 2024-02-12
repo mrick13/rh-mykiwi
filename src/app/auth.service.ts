@@ -14,11 +14,12 @@ export class AuthService {
 
   login(email: string, password: string) {
     const auth = getAuth(this.fbService.app);
+    //Connection avec un utilisateurs existant
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        this.router.navigate([''])
+        this.isLoggedIn = true
+        this.router.navigate(['/'])
       })
       .catch((error) => {
         const errorCode = error.code;

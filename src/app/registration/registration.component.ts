@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { User } from '../models/candidat/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { __values } from 'tslib';
 import { FirebaseService } from '../firebase.service';
@@ -11,7 +10,6 @@ import { FirebaseService } from '../firebase.service';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  @Input() user!: User;
   registrationForm!: FormGroup;
 
   constructor(

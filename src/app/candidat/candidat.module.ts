@@ -14,6 +14,7 @@ import { ListCollabComponent } from '../list-collab/list-collab.component';
 import { DetailCollabComponent } from '../detail-collab/detail-collab.component';
 import { DetailCardComponent } from '../detail-card/detail-card.component';
 import { AuthGuard } from '../auth-guard';
+import { AccountComponent } from '../account/account.component';
 
 const candidatRoutes: Routes = [
   { path: 'edit/candidat/:id' , component : EditComponent, canActivate: [AuthGuard] },
@@ -22,6 +23,7 @@ const candidatRoutes: Routes = [
   { path: 'candidat/:id', component: DetailComponent , canActivate: [AuthGuard] },
   { path: 'collaborateurs' , component: ListCollabComponent , canActivate: [AuthGuard] },
   { path: 'collaborateurs/:id' , component : DetailCollabComponent , canActivate: [AuthGuard] },
+  { path : 'account/' , component : AccountComponent , canActivate : [AuthGuard] },
 ];
 
 @NgModule({

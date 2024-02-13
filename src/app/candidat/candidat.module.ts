@@ -18,12 +18,13 @@ import { AccountComponent } from '../account/account.component';
 
 const candidatRoutes: Routes = [
   { path: 'edit/candidat/:id' , component : EditComponent, canActivate: [AuthGuard] },
-  { path: '', component: ListComponent , canActivate: [AuthGuard] },
+  { path: 'candidat', component: ListComponent , canActivate: [AuthGuard] },
   { path: 'candidat/add', component: AddCandidatComponent , canActivate: [AuthGuard] },
   { path: 'candidat/:id', component: DetailComponent , canActivate: [AuthGuard] },
   { path: 'collaborateurs' , component: ListCollabComponent , canActivate: [AuthGuard] },
   { path: 'collaborateurs/:id' , component : DetailCollabComponent , canActivate: [AuthGuard] },
   { path : 'account/' , component : AccountComponent , canActivate : [AuthGuard] },
+  { path: '', redirectTo: 'candidat' , pathMatch: 'full' ,},
 ];
 
 @NgModule({

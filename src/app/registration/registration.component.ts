@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { __values } from 'tslib';
 import { FirebaseService } from '../firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -14,7 +15,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private fbService: FirebaseService
+    private fbService: FirebaseService,
+    private router : Router
   ) {}
   ngOnInit() {
     var elems = document.querySelectorAll('select');
@@ -38,5 +40,6 @@ export class RegistrationComponent implements OnInit {
         const errorCode = error.code;
         const errorMessage = error.message;
       });
+      this.router.navigate(['/login'])
   }
 }

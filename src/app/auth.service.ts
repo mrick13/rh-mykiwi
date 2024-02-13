@@ -9,22 +9,28 @@ import { Router } from '@angular/router';
 export class AuthService {
   isLoggedIn: boolean = false;
   redirectUrl!: string;
+  message!: string;
 
-  constructor(private fbService: FirebaseService , private router : Router) {}
+  constructor(private fbService: FirebaseService, private router: Router) {}
 
   login(email: string, password: string) {
     const auth = getAuth(this.fbService.app);
+
     //Connection avec un utilisateurs existant
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
-        this.isLoggedIn = true
-        this.router.navigate(['/'])
+
+        const user = userCredential.user;
+        this.isLoggedIn = true;
+        this.router.navigate(['/']);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
       });
   }
-  logout() {}
+  logout() {
+    this.router.navigate(['/login'])
+  }
 }

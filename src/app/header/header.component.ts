@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { NavigationEnd, Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   hideHeader: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router , private authService: AuthService,) {}
   ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -17,5 +18,9 @@ export class HeaderComponent implements OnInit {
           (event.url === '/login' || event.url === '/registration');
       }
     });
+  }
+
+  onLogout() {
+    this.authService.logout()
   }
 }

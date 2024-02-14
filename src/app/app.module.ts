@@ -9,8 +9,6 @@ import { LoaderComponent } from './loader.service';
 import { CandidatModule } from './candidat/candidat.module';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { AccountComponent } from './account/account.component';
-import { SearchListComponent } from './search-list/search-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +17,6 @@ import { SearchListComponent } from './search-list/search-list.component';
     LoaderComponent,
     LoginComponent,
     RegistrationComponent,
-    AccountComponent,
   ],
   imports: [
     BrowserModule,

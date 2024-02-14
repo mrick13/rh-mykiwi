@@ -17,6 +17,7 @@ export class SearchListComponent implements OnInit{
   }
 
   onFilterChange() {
+    // Emettre la valeur du champ de recherche a chaque changement de valeur
     this.searchInput.emit(this.searchCtrl.value);
   }
 }

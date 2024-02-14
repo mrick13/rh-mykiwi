@@ -9,11 +9,9 @@ import { getDatabase, ref, set } from 'firebase/database';
 @Component({
   selector: 'app-detail-collab',
   templateUrl: './detail-collab.component.html',
-  styleUrls: ['./detail-collab.component.scss']
+  styleUrls: ['./detail-collab.component.scss'],
 })
 export class DetailCollabComponent implements OnInit {
-
-
   candidatList!: Candidat[];
   candidat!: Candidat;
   customDate: Pipe = CustomDatePipe;
@@ -24,32 +22,40 @@ export class DetailCollabComponent implements OnInit {
     private router: Router,
     private candidatService: CandidatService
   ) {}
-  
+
   ngOnInit() {
     const candidatId: string | null = this.route.snapshot.paramMap.get('id');
+    // Vérifier le collaborateur
     if (candidatId) {
+      // Appeler le service pour récuperer le collaborateur avec l'Id
       this.candidatService.getCandidatById(candidatId).then((candidat: any) => {
         this.candidat = candidat;
       });
     }
   }
 
-  goSupprCandidat(candidat: Candidat) {
+  goSupprCollab(candidat: Candidat) {
+    //Appeler le service pour supprimer le collaborateur
     this.candidatService.deleteCandidatById(candidat.id).then(() => {
+      // Rediriger vers la liste des collaborateurs
       this.router.navigate(['']);
     });
   }
 
-  goToEditCandidat() {
-    this.router.navigate(['/edit/candidat/' , this.candidat.id ])
+  goToEditCollab() {
+    // Rediriger vers le formulaire pour édit un collaborateur
+    this.router.navigate(['/edit/candidat/', this.candidat.id]);
   }
 
   removeCollab() {
+    // Initialiser la db
     const db = getDatabase();
+    // Passer le collaborateur en candidat
     this.candidat.isRecruited = false;
-    
-    set(ref(db, 'candidats/' + this.candidat.id), this.candidat).then(
-      () => this.router.navigate([''])
+
+    set(ref(db, 'candidats/' + this.candidat.id), this.candidat).then(() =>
+      // Rediriger vers la liste des candidats
+      this.router.navigate(['/candidat'])
     );
   }
 }

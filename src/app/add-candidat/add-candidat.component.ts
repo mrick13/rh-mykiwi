@@ -10,6 +10,7 @@ export class AddCandidatComponent implements OnInit {
   candidat!: Candidat;
 
   ngOnInit() {
+    // Initialisation du nouveau candidat
     this.candidat = new Candidat();
   }
 }

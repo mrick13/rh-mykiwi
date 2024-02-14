@@ -21,19 +21,22 @@ export class ListCandidatComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Initialiser la liste des candidats
     this.candidatList = this.candidatService.getCandidatList(true);
   }
 
   goToCandidat(candidat: Candidat) {
+    // Rediriger vers les détails du candidat
     this.router.navigate(['/candidat', candidat.id]);
   }
 
   onFilterChange(filter: string) {
-    this.searchInput = filter
-    this.candidatService.filterChange(this.searchInput)
+    //Appeler service pour filtrer 
+    this.candidatService.filterChange(filter)
   }
 
   matchFilter(candidat : Candidat) {
+    //Définir si on affiche un candidat
     return this.candidatService.searchFilter(candidat)
   }
 }

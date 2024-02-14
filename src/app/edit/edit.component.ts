@@ -18,7 +18,9 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     const candidatId: string | null = this.route.snapshot.paramMap.get('id');
+    // Vérifier le candidat
     if (candidatId) {
+      // Appeler le service pour récuperer le candidat avec l'Id
       this.candidatService.getCandidatById(candidatId).then((candidat: any) => {
         this.candidat = candidat;
       });

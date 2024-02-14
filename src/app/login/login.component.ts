@@ -25,21 +25,27 @@ export class LoginComponent {
   ) {}
 
   ngOnInit() {
+    // Initialiser le formulaire
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
+    // Créer les propriétés du formulaire
     this.loginForm = this.formBuilder.group({
       email: [null, [Validators.required]],
       password: [null, [Validators.required, Validators.minLength(8)]],
     });
   }
 
+  // Pas encore implémenter
   setMessage() {
+    // Vérifier si le login est mauvais 
     if (!this.auth.isLoggedIn) {
+      // Afficher le message suivant : Identifiant ou mot de passe incorrect
       this.message = 'Identifiant ou mot de passe incorrect';
     }
   }
 
   onLogin() {
+    // Appeler le service et se connecter avec email et password
     this.authService.login(
       this.loginForm.get('email')?.value,
       this.loginForm.get('password')?.value

@@ -25,12 +25,14 @@ export class AuthService {
         this.isLoggedIn = true;
         this.router.navigate(['/']);
       })
+      // Produire une erreur si l'utilisateur se trompe de login
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
       });
   }
   logout() {
+    // Rediriger vers la page de connexion
     this.router.navigate(['/login'])
   }
 }

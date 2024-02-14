@@ -9,7 +9,8 @@ import { Candidat } from '../models/candidat/candidat';
   styleUrls: ['./list-collab.component.scss']
 })
 export class ListCollabComponent implements OnInit{
-  candidatList!: Promise<Candidat[]>;
+  
+  collaborateurList!: Promise<Candidat[]>;
   searchInput: string = '';
 
   constructor (
@@ -18,23 +19,22 @@ export class ListCollabComponent implements OnInit{
   ){}
 
   ngOnInit() {
-    this.candidatList = this.candidatService.getCandidatList(false);
-    
+    // Initialiser la liste des collaborateurs
+    this.collaborateurList = this.candidatService.getCandidatList(false);
+  }
+  
+  goDetailCollab(candidat : Candidat) {
+    // Rediriger vers les détails du collaborateur
+    this.router.navigate(['/collaborateurs/', candidat.id])
   }
 
-  goToCollab(candidat : Candidat) {
-    if(candidat.isRecruited === true) {
-      this.router.navigate(['/collaborateurs/', candidat.id])
-    }
-  }
-// 
   onFilterChange(filter: string) {
-    this.searchInput = filter
-    console.log(this.searchInput);
-    this.candidatService.filterChange(this.searchInput)
+    //Appeler service pour filtrer 
+    this.candidatService.filterChange(filter) 
   }
 
   matchFilter(candidat : Candidat) {
+    //Définir si on affiche un collaborataur
     return this.candidatService.searchFilter(candidat)
   }
 }

@@ -17,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let candidat of candidatList | async">
+    <tr *ngFor="let candidat of collaborateurList | async">
       <ng-container *ngIf="matchFilter(candidat)">
         <td>{{ candidat.name | uppercase }} {{ candidat.firstname }}</td>
         <td>{{ candidat.email }}</td>
@@ -29,7 +29,7 @@
           <i
             class="material-icons"
             style="cursor: pointer"
-            (click)="goToCollab(candidat)"
+            (click)="goDetailCollab(candidat)"
           >
             more_horiz
           </i>

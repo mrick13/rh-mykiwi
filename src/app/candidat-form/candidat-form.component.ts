@@ -4,7 +4,7 @@ import { CandidatService } from '../candidat.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import * as M from 'materialize-css' ;
+import * as M from 'materialize-css';
 // import { PAYS } from '../models/candidat/pays';
 
 @Component({
@@ -13,10 +13,11 @@ import * as M from 'materialize-css' ;
   styleUrls: ['./candidat-form.component.scss'],
 })
 export class CandidatFormComponent implements OnInit {
+
   @Input() candidat!: Candidat;
+
   candidatForm!: FormGroup;
   candidatPreview$!: Observable<Candidat>;
-  // Pays! : typeof PAYS[];
 
   constructor(
     private candidatService: CandidatService,
@@ -25,9 +26,10 @@ export class CandidatFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
+    // Initialiser le formulaire
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
+    // Créer les propriétés du formulaire
     this.candidatForm = this.formBuilder.group({
       name: [this.candidat.name, [Validators.required]],
       firstname: [this.candidat.firstname, [Validators.required]],
@@ -44,19 +46,21 @@ export class CandidatFormComponent implements OnInit {
       family: [this.candidat.family],
       experience: [this.candidat.experience],
       technology: [this.candidat.technology],
-      note: [this.candidat.note]
+      note: [this.candidat.note],
     });
   }
 
   onSubmitForm() {
-    const id = `${this.candidatForm.value.name}${this.candidatForm.value.firstname}${this.candidatForm.value.isBorn}`.replaceAll(
-      ' ',
-      '-'
-    )
+    // Formatter l'id sous form de nom+prénom+date de naissance avec un tiret entre chaque valeur
+    const id =
+      `${this.candidatForm.value.name}${this.candidatForm.value.firstname}${this.candidatForm.value.isBorn}`.replaceAll(
+        ' ',
+        '-'
+      );
+    // Appeler le service pour crée le candidat d'après les valeurs du formulaire
     this.candidatService.addCandidat(this.candidatForm.value, id).then(() => {
-      console.log(this.candidat);
-      
-      this.router.navigate(['candidat/', id]); //une fois crée => renvoie sur le détail du candidat crée
+      //une fois crée => renvoie sur le détail du candidat crée
+      this.router.navigate(['candidat/', id]);
     });
   }
 }

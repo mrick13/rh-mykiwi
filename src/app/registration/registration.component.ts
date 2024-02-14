@@ -16,11 +16,13 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private fbService: FirebaseService,
-    private router : Router
+    private router: Router
   ) {}
   ngOnInit() {
+    // Initialiser le formulaire
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
+    // Créer les propriétés du formulaire
     this.registrationForm = this.formBuilder.group({
       email: [null, [Validators.required]],
       password: [null, [Validators.required, Validators.minLength(8)]],
@@ -34,12 +36,14 @@ export class RegistrationComponent implements OnInit {
     //création de nouveau utilisateur avec firebase
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;        
+        const user = userCredential.user;
       })
+      // Produire un message d'erreur lors de la création du nouveau compte
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
       });
-      this.router.navigate(['/login'])
+      // Rediriger vers le formulaire de connexion
+    this.router.navigate(['/login']);
   }
 }

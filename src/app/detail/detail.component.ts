@@ -26,31 +26,37 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     const candidatId: string | null = this.route.snapshot.paramMap.get('id');
+    // Vérifier le candidat
     if (candidatId) {
+      // Appeler le service pour récuperer le candidat avec l'Id
       this.candidatService.getCandidatById(candidatId).then((candidat: any) => {
         this.candidat = candidat;
-        console.log(this.candidat);
-        
       });
     }
   }
 
   goSupprCandidat(candidat: Candidat) {
+    //Appeler le service pour supprimer le candidat
     this.candidatService.deleteCandidatById(candidat.id).then(() => {
-      this.router.navigate(['']);
+      // Rediriger vers la liste des candidats
+      this.router.navigate(['/candidat']);
     });
   }
 
   goToEditCandidat() {
-    this.router.navigate(['/edit/candidat/' , this.candidat.id ])
+    // Rediriger vers le formulaire pour édit un candidat
+    this.router.navigate(['/edit/candidat/', this.candidat.id]);
   }
 
   addCollab() {
+    // Initialiser la db
     const db = getDatabase();
+    // Passer le candidat en collaborateur
     this.candidat.isRecruited = true;
-    
-    set(ref(db, 'candidats/' + this.candidat.id), this.candidat).then(
-      () => this.router.navigate(['/collaborateurs'])
+
+    set(ref(db, 'candidats/' + this.candidat.id), this.candidat).then(() =>
+    // Rediriger vers la liste des collaborateurs
+      this.router.navigate(['/collaborateurs'])
     );
   }
 }

@@ -9,6 +9,7 @@ import { SearchListComponent } from './search-list/search-list.component';
   providedIn: 'root',
 })
 export class CandidatService {
+
   candidat$!: Observable<Candidat[]>;
   searchInput: string = '';
 
@@ -47,16 +48,22 @@ export class CandidatService {
   }
 
   getCandidatById(candidatId: string): Promise<Candidat> {
+    // Initialiser la connexion a la db firebase
     const dbRef = ref(getDatabase());
+    // Retourner la promesse après avoir récuperer le candidat par son ID
     return new Promise((resolve, reject) => {
+      // Récuperer le candidat avec l'ID dans la db firebase
       get(child(dbRef, `candidats/${candidatId}`))
-        .then((snapshot) => {
-          if (snapshot.exists()) {
-            this.candidat$ = snapshot.val();
-            resolve(snapshot.val());
+        .then((candidat) => {
+          // Vérifier si le candidat a été récupérer
+          if (candidat.exists()) {
+            // Stocker le candidat récupérer
+            this.candidat$ = candidat.val();
+            resolve(candidat.val());
           } else {
+            // Retourner une erreur si aucun candidat n'a été trouvé
             console.log('No data available');
-            reject(snapshot.val());
+            reject(candidat.val());
           }
         })
         .catch((error) => {
@@ -95,13 +102,18 @@ export class CandidatService {
 
   deleteCandidatById(candidatId: string): Promise<void> {
     const dbRef = ref(getDatabase());
-
+    // Retourner la promesse après avoir supprimer un candidat
     return new Promise<void>((resolve, reject) => {
+      // Initialiser la connexion a la db firebase
       const candidatRef = child(dbRef, `candidats/${candidatId}`);
-      get(candidatRef).then((snapshot) => {
-        if (snapshot.exists()) {
+      // Récuperer le candidat à supprimer dans la db firebase
+      get(candidatRef).then((candidat) => {
+        // Vérifier si le candidat a été récupérer
+        if (candidat.exists()) {
+          // Supprimer un candidat
           resolve(remove(candidatRef));
         } else {
+          // Retourner l'erreur si impossible de supprimer le candidat
           reject(new Error(`Candidat avec l'ID :${candidatId} non trouvé.`));
         }
       });
@@ -109,14 +121,15 @@ export class CandidatService {
   }
 
   searchFilter(candidat: Candidat): boolean {
+    // Vérifier si le champ de recherche est vide ou undefined
     if (this.searchInput.length === 0 || this.searchInput === undefined) {
       return true;
     }
+    // Forcer le candidat.technology en string pour les champs vide
     if (candidat.technology === undefined) {
       candidat.technology = '';
     }
-    console.log(candidat.technology);
-    
+    // paramètres de recherches avec nom, prenom, etc
     const searchTypes: string[] = [
       candidat.name.toLowerCase(),
       candidat.firstname.toLowerCase(),
@@ -124,9 +137,8 @@ export class CandidatService {
       `${candidat.firstname + candidat.name}`.toLowerCase(),
       candidat.technology.toString().toLowerCase(),
     ];
+    // boucle pour la recherche a chaque lettres écrite
     for (let i = 0; i < searchTypes.length; i++) {
-      console.log(searchTypes[i]);
-      
       if (
         searchTypes[i].includes(
           this.searchInput.toLowerCase().replace(/\s/g, '')

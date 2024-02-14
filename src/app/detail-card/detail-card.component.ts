@@ -7,11 +7,11 @@ import { Candidat } from '../models/candidat/candidat';
   styleUrls: ['./detail-card.component.scss']
 })
 export class DetailCardComponent {
+  
   @Input() candidat!: Candidat
 
   isMoving() {
     if (this.candidat.moving === true) {
-      
     }
   }
 }

@@ -14,7 +14,6 @@ import { ListCollabComponent } from '../list-collab/list-collab.component';
 import { DetailCollabComponent } from '../detail-collab/detail-collab.component';
 import { DetailCardComponent } from '../detail-card/detail-card.component';
 import { AuthGuard } from '../auth-guard';
-import { AccountComponent } from '../account/account.component';
 import { SearchListComponent } from '../search-list/search-list.component';
 
 const candidatRoutes: Routes = [
@@ -24,7 +23,6 @@ const candidatRoutes: Routes = [
   { path: 'candidat/:id', component: DetailComponent , canActivate: [AuthGuard] },
   { path: 'collaborateurs' , component: ListCollabComponent , canActivate: [AuthGuard] },
   { path: 'collaborateurs/:id' , component : DetailCollabComponent , canActivate: [AuthGuard] },
-  { path : 'account/' , component : AccountComponent , canActivate : [AuthGuard] },
   { path: '', redirectTo: 'candidat' , pathMatch: 'full' ,},
 ];
 

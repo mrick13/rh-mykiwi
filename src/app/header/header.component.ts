@@ -8,12 +8,17 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+
   hideHeader: boolean = false;
 
   constructor(private router: Router , private authService: AuthService,) {}
+
   ngOnInit() {
+
     this.router.events.subscribe((event) => {
+
       if (event instanceof NavigationEnd) {
+        // Cacher le contenu du header si il y a /login ou /registration dans l'url
         this.hideHeader =
           (event.url === '/login' || event.url === '/registration');
       }
@@ -21,6 +26,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
+    // déconnecter l'utilisateur
     this.authService.logout()
   }
 }

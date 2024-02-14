@@ -3,13 +3,15 @@ import { Candidat } from './models/candidat/candidat';
 import { child, get, getDatabase, ref, remove, set } from 'firebase/database';
 import { Observable, catchError, from, map, of } from 'rxjs';
 import { FirebaseService } from './firebase.service';
+import { SearchListComponent } from './search-list/search-list.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CandidatService {
   candidat$!: Observable<Candidat[]>;
-  
+  searchInput: string = '';
+
   constructor(private fbService: FirebaseService) {}
 
   getCandidatList(returnCandidat: boolean): Promise<Candidat[]> {
@@ -100,9 +102,43 @@ export class CandidatService {
         if (snapshot.exists()) {
           resolve(remove(candidatRef));
         } else {
-          reject(new Error(`Candidat avec l'ID ${candidatId} non trouvé.`));
+          reject(new Error(`Candidat avec l'ID :${candidatId} non trouvé.`));
         }
       });
     });
+  }
+
+  searchFilter(candidat: Candidat): boolean {
+    if (this.searchInput.length === 0 || this.searchInput === undefined) {
+      return true;
+    }
+    if (candidat.technology === undefined) {
+      candidat.technology = '';
+    }
+    console.log(candidat.technology);
+    
+    const searchTypes: string[] = [
+      candidat.name.toLowerCase(),
+      candidat.firstname.toLowerCase(),
+      `${candidat.name + candidat.firstname}`.toLowerCase(),
+      `${candidat.firstname + candidat.name}`.toLowerCase(),
+      candidat.technology.toString().toLowerCase(),
+    ];
+    for (let i = 0; i < searchTypes.length; i++) {
+      console.log(searchTypes[i]);
+      
+      if (
+        searchTypes[i].includes(
+          this.searchInput.toLowerCase().replace(/\s/g, '')
+        )
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  filterChange(filter: string) {
+    this.searchInput = filter;
   }
 }

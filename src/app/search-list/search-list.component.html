@@ -1,0 +1,20 @@
+<div class="container">
+  <!-- Container pour centrer le contenu -->
+  <form class="search-container">
+    <!-- Classe de conteneur de recherche -->
+    <div class="search-title">Recherche</div>
+    <!-- Titre de la recherche -->
+    <div class="field">
+      <!-- Champ de recherche -->
+      <input
+        type="text"
+        id="name"
+        name="searchInput"
+        placeholder="Recherchez votre candidat"
+        (keyup)="onFilterChange()"
+        [formControl]="searchCtrl"
+      />
+      <!-- Champ de saisie -->
+    </div>
+  </form>
+</div>

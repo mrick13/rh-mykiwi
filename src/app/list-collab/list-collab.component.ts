@@ -10,6 +10,7 @@ import { Candidat } from '../models/candidat/candidat';
 })
 export class ListCollabComponent implements OnInit{
   candidatList!: Promise<Candidat[]>;
+  searchInput: string = '';
 
   constructor (
     private router : Router,
@@ -25,5 +26,15 @@ export class ListCollabComponent implements OnInit{
     if(candidat.isRecruited === true) {
       this.router.navigate(['/collaborateurs/', candidat.id])
     }
+  }
+// 
+  onFilterChange(filter: string) {
+    this.searchInput = filter
+    console.log(this.searchInput);
+    this.candidatService.filterChange(this.searchInput)
+  }
+
+  matchFilter(candidat : Candidat) {
+    return this.candidatService.searchFilter(candidat)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, Pipe } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Candidat } from '../models/candidat/candidat';
 
 @Component({

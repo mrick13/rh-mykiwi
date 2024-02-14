@@ -1,0 +1,33 @@
+.container {
+  display: flex; /* Utilisation de flexbox pour centrer le contenu */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+  margin-bottom: 3rem;
+}
+
+form {
+  width: 50rem;
+}
+.search-container {
+  background: #f2f2f2; /* Couleur de fond */
+  padding: 20px; /* Marge intérieure */
+  border-radius: 5px; /* Bord arrondi */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+.search-title {
+  font-weight: bold; /* Gras */
+  margin-bottom: 10px; /* Marge inférieure */
+}
+
+.field {
+  margin-bottom: 10px; /* Marge inférieure */
+}
+
+input[type="text"] {
+  width: 100%; /* Largeur maximale */
+  padding: 10px; /* Remplissage */
+  border-radius: 3px; /* Bord arrondi */
+  border: 1px solid #ccc; /* Bordure */
+  box-sizing: border-box; /* Calcul de la largeur incluant le remplissage et la bordure */
+}

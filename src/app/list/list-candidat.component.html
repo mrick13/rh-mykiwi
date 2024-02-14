@@ -4,7 +4,7 @@
     ><i class="material-icons" routerLink="/candidat/add">add</i>
   </a>
 </div>
-
+<div class="test"></div>
 <table class="striped">
   <thead>
     <tr>
@@ -21,7 +21,9 @@
       <ng-container *ngIf="matchFilter(candidat)">
         <td>{{ candidat.name | uppercase }} {{ candidat.firstname }}</td>
         <td>{{ candidat.email }}</td>
-        <td>{{ candidat.phone | customPhone }}</td>
+        <td>
+          {{ candidat.phone !== null ? (candidat.phone | customPhone) : "" }}
+        </td>
         <td>{{ candidat.nationality }}</td>
         <td>{{ candidat.isBorn | customDate }}</td>
         <td>{{ candidat.technology }}</td>
@@ -29,7 +31,7 @@
           <i
             class="material-icons"
             style="cursor: pointer"
-            (click)="goToCollab(candidat)"
+            (click)="goToCandidat(candidat)"
           >
             more_horiz
           </i>

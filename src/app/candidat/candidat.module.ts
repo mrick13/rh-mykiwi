@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from '../app.component';
-import { ListComponent } from '../list/list.component';
+import { ListCandidatComponent} from '../list/list-candidat.component';
 import { AddCandidatComponent } from '../add-candidat/add-candidat.component';
 import { DetailComponent } from '../detail/detail.component';
 import { CandidatFormComponent } from '../candidat-form/candidat-form.component';
@@ -15,10 +15,11 @@ import { DetailCollabComponent } from '../detail-collab/detail-collab.component'
 import { DetailCardComponent } from '../detail-card/detail-card.component';
 import { AuthGuard } from '../auth-guard';
 import { AccountComponent } from '../account/account.component';
+import { SearchListComponent } from '../search-list/search-list.component';
 
 const candidatRoutes: Routes = [
   { path: 'edit/candidat/:id' , component : EditComponent, canActivate: [AuthGuard] },
-  { path: 'candidat', component: ListComponent , canActivate: [AuthGuard] },
+  { path: 'candidat', component: ListCandidatComponent , canActivate: [AuthGuard] },
   { path: 'candidat/add', component: AddCandidatComponent , canActivate: [AuthGuard] },
   { path: 'candidat/:id', component: DetailComponent , canActivate: [AuthGuard] },
   { path: 'collaborateurs' , component: ListCollabComponent , canActivate: [AuthGuard] },
@@ -29,7 +30,7 @@ const candidatRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    ListComponent,
+    ListCandidatComponent,
     AddCandidatComponent,
     DetailComponent,
     CandidatFormComponent,
@@ -39,6 +40,7 @@ const candidatRoutes: Routes = [
     ListCollabComponent,
     DetailCollabComponent,
     DetailCardComponent,
+    SearchListComponent,
   ],
   imports: [
     CommonModule,

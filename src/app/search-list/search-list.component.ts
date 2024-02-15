@@ -29,12 +29,9 @@ export class SearchListComponent implements OnInit, OnChanges {
       if (event instanceof NavigationEnd) {
         // Changer le placeholder selon la liste de candidat ou collaborateur
         if (event.url === '/candidat') {
-          console.log('candidat');
           this.placeholder = 'Recherchez votre Candidat';
-          console.log(this.placeholder);
         }
         this.placeholder = ' Recherchez votre Collaborateur';
-        console.log(this.placeholder);
       }
     });
   }
@@ -46,15 +43,11 @@ export class SearchListComponent implements OnInit, OnChanges {
       if (event instanceof NavigationEnd) {
         // Changer le placeholder selon la liste de candidat ou collaborateur
         if (event.url === '/candidat') {
-          console.log('candidat');
 
           this.placeholder = 'Recherchez votre Candidat';
-          console.log(this.placeholder);
         } else if (event.url === '/collaborateur') {
-          console.log('collabo');
 
           this.placeholder = ' Recherchez votre Collaborateur';
-          console.log(this.placeholder);
         }
       }
     });

@@ -20,17 +20,18 @@ export class AuthService {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-
         const user = userCredential.user;
         this.isLoggedIn = true;
         this.router.navigate(['/']);
       })
       // Produire une erreur si l'utilisateur se trompe de login
       .catch((error) => {
+        this.message = "Identifiant ou email incorrect"
         const errorCode = error.code;
         const errorMessage = error.message;
       });
   }
+  
   logout() {
     // Rediriger vers la page de connexion
     this.router.navigate(['/login'])

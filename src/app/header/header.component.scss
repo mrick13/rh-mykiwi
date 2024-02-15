@@ -16,14 +16,6 @@ header {
   min-height: 100vh;
 }
 
-// Style pour le contenu principal de la page
-// main {
-//   margin-left: $header-width;
-//   padding: $header-padding;
-
-// Ajoutez d'autres styles selon vos besoins
-// ...
-
 li {
   margin: 1rem;
 }
@@ -35,4 +27,8 @@ a {
 
 i {
   cursor: default;
+}
+
+.title-selected {
+  color: rgb(96, 216, 80)
 }

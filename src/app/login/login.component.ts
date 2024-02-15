@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -11,17 +11,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  
+  @Input() message!: string;
+
   auth!: AuthService;
-  message!: string;
   email!: string;
   password!: string;
   loginForm!: FormGroup;
 
   constructor(
     private authService: AuthService,
-    private fbService: FirebaseService,
     private formBuilder: FormBuilder,
-    private router : Router,
   ) {}
 
   ngOnInit() {
@@ -35,14 +35,6 @@ export class LoginComponent {
     });
   }
 
-  // Pas encore implémenter
-  setMessage() {
-    // Vérifier si le login est mauvais 
-    if (!this.auth.isLoggedIn) {
-      // Afficher le message suivant : Identifiant ou mot de passe incorrect
-      this.message = 'Identifiant ou mot de passe incorrect';
-    }
-  }
 
   onLogin() {
     // Appeler le service et se connecter avec email et password

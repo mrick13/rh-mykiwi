@@ -1,15 +1,15 @@
-<header>
-  <div *ngIf="!hideHeader">
+<header *ngIf="!hideHeader">
+  <div>
     <i class="medium material-icons">account_circle</i>
     <ul>
-      <div *ngIf="!hideSelected">
+      <div>
         <li>
-          <a routerLink="/candidat">Candidats</a>
+          <a [routerLink]="['/candidat']" routerLinkActive="title-selected">Candidats</a>
         </li>
       </div>
-      <div *ngIf="hideSelected">
+      <div>
         <li>
-          <a routerLink="/collaborateurs">Collaborateurs</a>
+          <a [routerLink]="['/collaborateurs']" routerLinkActive="title-selected">Collaborateurs</a>
         </li>
       </div>
       <li>

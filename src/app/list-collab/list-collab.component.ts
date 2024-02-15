@@ -12,6 +12,7 @@ export class ListCollabComponent implements OnInit{
   
   collaborateurList!: Promise<Candidat[]>;
   searchInput: string = '';
+  placeholder: string  = "Recherchez votre Collaborateur";
 
   constructor (
     private router : Router,

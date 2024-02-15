@@ -10,7 +10,7 @@
         type="text"
         id="name"
         name="searchInput"
-        placeholder="Recherchez votre candidat"
+        [placeholder]="placeholder"
         (keyup)="onFilterChange()"
         [formControl]="searchCtrl"
       />

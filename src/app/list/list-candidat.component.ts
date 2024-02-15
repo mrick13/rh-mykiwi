@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Candidat } from '../models/candidat/candidat';
 import { Router } from '@angular/router';
 import { CandidatService } from '../candidat.service';
@@ -14,6 +14,7 @@ import { CandidatService } from '../candidat.service';
 export class ListCandidatComponent implements OnInit {
   candidatList!: Promise<Candidat[]>;
   searchInput: string = '';
+  placeholder: string  = "Recherchez votre Candidat";
 
   constructor(
     private router: Router,

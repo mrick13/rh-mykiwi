@@ -129,13 +129,14 @@ export class CandidatService {
     if (candidat.technology === undefined) {
       candidat.technology = '';
     }
-    // paramètres de recherches avec nom, prenom, etc
+    // paramètres de recherches avec nom, prenom, technologie , nationalité 
     const searchTypes: string[] = [
       candidat.name.toLowerCase(),
       candidat.firstname.toLowerCase(),
       `${candidat.name + candidat.firstname}`.toLowerCase(),
       `${candidat.firstname + candidat.name}`.toLowerCase(),
       candidat.technology.toString().toLowerCase(),
+      candidat.nationality.toLowerCase()
     ];
     // boucle pour la recherche a chaque lettres écrite
     for (let i = 0; i < searchTypes.length; i++) {

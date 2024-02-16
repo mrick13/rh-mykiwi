@@ -1,5 +1,11 @@
 <div class="candidate-info">
   <div class="info-section">
+    <p class="info-label">{{textDate()}}</p>
+    <p class="info-value">
+      {{ candidat.dateChangement }}
+    </p>
+  </div>
+  <div class="info-section">
     <p class="info-label">Numéro de téléphone du candidat:</p>
     <p class="info-value">
       {{ candidat.phone | customPhone }}

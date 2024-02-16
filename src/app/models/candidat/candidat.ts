@@ -14,4 +14,5 @@ export class Candidat {
   technology! : string;  //technologies utilisé par le candidat
   note! : string; //note d'entretien 
   isRecruited! : boolean ; //recruté ou pas
+  dateChangement!: string | null
  }

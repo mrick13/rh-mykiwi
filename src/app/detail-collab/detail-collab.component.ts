@@ -1,7 +1,7 @@
 import { Component, OnInit, Pipe } from '@angular/core';
 import { Candidat } from '../models/candidat/candidat';
-import { CustomPhonePipe } from '../shared/custom-phone.pipe';
-import { CustomDatePipe } from '../shared/custom-date.pipe';
+import { CustomPhonePipe } from '../pipe/custom-phone.pipe';
+import { CustomDatePipe } from '../pipe/custom-date.pipe';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CandidatService } from '../candidat.service';
 import { getDatabase, ref, set } from 'firebase/database';
@@ -52,6 +52,7 @@ export class DetailCollabComponent implements OnInit {
     const db = getDatabase();
     // Passer le collaborateur en candidat
     this.candidat.isRecruited = false;
+    this.candidat.dateChangement = new Date().toDateString();
 
     set(ref(db, 'candidats/' + this.candidat.id), this.candidat).then(() =>
       // Rediriger vers la liste des candidats

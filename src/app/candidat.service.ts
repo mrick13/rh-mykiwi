@@ -96,6 +96,7 @@ export class CandidatService {
       ...formValue,
       id: generatedId,
       isRecruited: false,
+      dateChangement: null 
     };
     return set(ref(db, 'candidats/' + candidat.id), candidat);
   }

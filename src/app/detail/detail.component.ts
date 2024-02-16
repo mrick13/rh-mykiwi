@@ -2,9 +2,10 @@ import { Component, OnInit, Pipe } from '@angular/core';
 import { Candidat } from '../models/candidat/candidat';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CandidatService } from '../candidat.service';
-import { CustomDatePipe } from '../shared/custom-date.pipe';
-import { CustomPhonePipe } from '../shared/custom-phone.pipe';
+import { CustomDatePipe } from '../pipe/custom-date.pipe';
+import { CustomPhonePipe } from '../pipe/custom-phone.pipe';
 import { getDatabase, ref, set } from 'firebase/database';
+import { DetailCardComponent } from '../detail-card/detail-card.component';
 
 @Component({
   selector: 'app-detail',
@@ -12,7 +13,6 @@ import { getDatabase, ref, set } from 'firebase/database';
   styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent implements OnInit {
-
   candidatList!: Candidat[];
   candidat!: Candidat;
   customDate: Pipe = CustomDatePipe;
@@ -22,7 +22,8 @@ export class DetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private candidatService: CandidatService
-  ) {}
+  ) // private detailCard : DetailCardComponent
+  {}
 
   ngOnInit() {
     const candidatId: string | null = this.route.snapshot.paramMap.get('id');
@@ -53,9 +54,11 @@ export class DetailComponent implements OnInit {
     const db = getDatabase();
     // Passer le candidat en collaborateur
     this.candidat.isRecruited = true;
+    this.candidat.dateChangement = new Date().toDateString();
 
+    // this.detailCard.isDateCollab()
     set(ref(db, 'candidats/' + this.candidat.id), this.candidat).then(() =>
-    // Rediriger vers la liste des collaborateurs
+      // Rediriger vers la liste des collaborateurs
       this.router.navigate(['/collaborateurs'])
     );
   }

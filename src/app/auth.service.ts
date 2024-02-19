@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
   redirectUrl!: string;
   message!: string;
 

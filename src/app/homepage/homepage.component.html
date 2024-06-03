@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>Sélectionnez une entreprise</h1>
+    <div class="card-grid">
+      <div class="card" *ngFor="let company of companies" (click)="GotoCompany(company)">
+        <h2>{{ company.name }}</h2>
+        <p>{{ company.description }}</p>
+      </div>
+    </div>
+  </div>

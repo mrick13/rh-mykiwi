@@ -22,7 +22,7 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         this.isLoggedIn = true;
-        this.router.navigate(['/']);
+        this.router.navigate(['/homepage']);
       })
       // Produire une erreur si l'utilisateur se trompe de login
       .catch((error) => {

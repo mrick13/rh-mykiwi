@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -12,11 +13,11 @@ export class HomepageComponent implements OnInit {
     { name: 'Odentik', description: 'Distributeur de materiels et fournitures dentaires' }
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  GotoCompany(company: any) {
-     
+  GotoMyKiwi(company: any) {
+    
   }
 }

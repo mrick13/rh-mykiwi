@@ -10,7 +10,7 @@ import { CandidatModule } from './candidat/candidat.module';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { CompaniesComponent } from './companies/companies.component';
+import { CompanyModule } from './company/company.module';
 
 @NgModule({
   declarations: [
@@ -20,16 +20,16 @@ import { CompaniesComponent } from './companies/companies.component';
     LoginComponent,
     RegistrationComponent,
     HomepageComponent,
-    CompaniesComponent,
   ],
   imports: [
     BrowserModule,
     CandidatModule,
+    CompanyModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

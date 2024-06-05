@@ -14,7 +14,7 @@
     ><i class="material-icons" routerLink="/company/add">add</i>
   </a>
     <div class="card-grid">
-      <div class="card" *ngFor="let company of companies">
+      <div class="card" *ngFor="let company of companyList | async">
         <h2>{{ company.name }}</h2>
         <p>{{ company.description }}</p>
       </div>

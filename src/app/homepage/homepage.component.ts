@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Company } from '../models/candidat/company';
+import { CompanyService } from '../company.service';
+import { Candidat } from '../models/candidat/candidat';
 
 @Component({
   selector: 'app-homepage',
@@ -7,17 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  companies = [
-    { name: 'MyKiwi', description: 'Ingenierie Web' },
-    { name: 'Ferronnerie BAUD', description: 'Ferronnerie' },
-    { name: 'Odentik', description: 'Distributeur de materiels et fournitures dentaires' }
-  ];
+  companyList!: Promise<Company[]>
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private companyService: CompanyService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    // Initialiser la liste des entreprises
+    this.companyList = this.companyService.getCompanyList(true);
+  }
 
-  GotoMyKiwi(company: any) {
+  GotoCompany(company: any) {
     
   }
 }

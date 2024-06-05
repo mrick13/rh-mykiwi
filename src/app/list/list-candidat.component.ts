@@ -24,6 +24,10 @@ export class ListCandidatComponent implements OnInit {
   ngOnInit() {
     // Initialiser la liste des candidats
     this.candidatList = this.candidatService.getCandidatList(true);
+    console.log(this.candidatList);
+    console.log(Candidat);
+    
+    
   }
 
   goToCandidat(candidat: Candidat) {

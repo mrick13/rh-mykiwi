@@ -88,6 +88,7 @@ export class CandidatService {
       experience: string;
       technology: string;
       note: string;
+      company: string
     },
     generatedId: string
   ) {

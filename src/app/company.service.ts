@@ -14,17 +14,26 @@ export class CompanyService {
 
   constructor(private fbService: FirebaseService) {}
 
-  // getCompanyList(returnCompany: boolean): Promise<Company[]> {
-  //   const dbRef = ref(getDatabase());
-  //   const companies: Company[] = [];
-  //   return get(child(dbRef,'companies'))
-  //     .then((snapshot)=> {
-  //       if(snapshot.exists()) {
-  //         for (const company of Object.entries<Company>(snapshot.val()))
-           
-  //       }
-  //     })
-  // }
+  getCompanyList(returnCompany: boolean): Promise<Company[]> {
+    const dbRef = ref(getDatabase());
+    const companies: Company[] = [];
+    return get(child(dbRef,'companies'))
+      .then((snapshot)=> {
+        if(snapshot.exists()) {
+          for (const company of Object.entries<Company>(snapshot.val()))
+            companies.push(company[1]);
+        } else {
+      console.log("No Data available");
+      }
+      return companies
+      })
+      .catch((error) => {
+        console.error(error);
+        return [];
+      });
+  }
+
+
   getCompanyById(companyId: string): Promise<Company> {
     const dbRef = ref(getDatabase());
     return new Promise((resolve , reject) => {
@@ -45,6 +54,7 @@ export class CompanyService {
   addCompany(
     formValue: {
       name: string;
+      collaborateur: string[]
     },
     generatedId: string
   ) {

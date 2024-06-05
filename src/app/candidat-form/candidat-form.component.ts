@@ -47,6 +47,7 @@ export class CandidatFormComponent implements OnInit {
       experience: [this.candidat.experience],
       technology: [this.candidat.technology],
       note: [this.candidat.note],
+      company : [this.candidat.company,]
     });
   }
 

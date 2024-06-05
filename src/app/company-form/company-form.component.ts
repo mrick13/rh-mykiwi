@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { CompanyService } from '../company.service';
 import { Router } from '@angular/router';
+import { Collapsible } from 'materialize-css';
 
 @Component({
   selector: 'app-company-form',
@@ -27,6 +28,7 @@ export class CompanyFormComponent implements OnInit {
     var instances = M.FormSelect.init(elems);
     this.companyForm = this.formBuilder.group({
       name: [this.company.name, [Validators.required]],
+      collaborateur : [this.company.collaborateur],
     });
   }
 

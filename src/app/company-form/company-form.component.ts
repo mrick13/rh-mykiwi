@@ -28,13 +28,13 @@ export class CompanyFormComponent implements OnInit {
     var instances = M.FormSelect.init(elems);
     this.companyForm = this.formBuilder.group({
       name: [this.company.name, [Validators.required]],
-      collaborateur : [this.company.collaborateur],
+      description : [this.company.description, [Validators.required]],
     });
   }
 
   onSubmitForm() {
     const id =
-      `${this.companyForm.value.name}${this.companyForm.value.id}`.replaceAll(
+      `${this.companyForm.value.name}${this.companyForm.value.description}`.replaceAll(
         ' ',
         '-'
       );

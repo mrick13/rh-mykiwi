@@ -10,9 +10,11 @@
 
   <div class="container">
     <h1>Sélectionnez une entreprise</h1>
-    <a class="btn-floating btn-large waves-effect waves-light"
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large waves-effect waves-light"
     ><i class="material-icons" routerLink="/company/add">add</i>
   </a>
+</div>
     <div class="card-grid">
       <div class="card" *ngFor="let company of companyList | async">
         <h2>{{ company.name }}</h2>
